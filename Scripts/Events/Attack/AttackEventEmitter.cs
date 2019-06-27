@@ -6,18 +6,18 @@ public class AttackEventEmitter : MonoBehaviour
     [SerializeField]
     private OnAttackEventHandler AttackEventHandler;
 
-    public void emit(AttackLaunchEventData AttackLaunchEventData)
+    public void emit(AttackLaunchEventData e)
     {
-        AttackEventHandler.OnAttackLaunch.Invoke(AttackLaunchEventData);
+        AttackEventHandler.OnAttackLaunch.Invoke(e);
     }
 
-    public void emit(AttackConnectEventData AttackConnectEventData)
+    public void emit(AttackConnectEventData e)
     {
-        AttackEventHandler.OnAttackConnect.Invoke(AttackConnectEventData);
+        AttackEventHandler.OnAttackConnect.Invoke(e);
     }
 
-    public void emit(AttackEndEventData AttackEndEventData)
+    public void emit(AttackEndEventData e)
     {
-        AttackEventHandler.OnAttackEnd.Invoke(AttackEndEventData);
+        AttackEventHandler.OnAttackEnd.Invoke(e);
     }
 }

@@ -128,26 +128,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnAttackLaunch:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114510374848221866}
-        m_MethodName: LogA
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: AttackLaunchEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnAttackConnect:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114510374848221866}
-        m_MethodName: LogB
-        m_Mode: 1
+        m_MethodName: HitEnemy
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -162,8 +151,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114510374848221866}
-        m_MethodName: LogC
-        m_Mode: 1
+        m_MethodName: EndProjectileAttack
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

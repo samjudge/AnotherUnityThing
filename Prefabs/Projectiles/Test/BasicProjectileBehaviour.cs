@@ -48,23 +48,21 @@ public class BasicProjectileBehaviour : MonoBehaviour
 
     public void OnTriggerEnter(Collider O){
         Emitter.emit(
-            new AttackConnectEventData()
+            new AttackConnectEventData(O.gameObject, 25)
         );
         Emitter.emit(
             new AttackEndEventData()
         );
     }
 
-    public void LogA(){
-        Debug.Log("A");
+    public void HitEnemy(AttackConnectEventData e){
+        OnDamageEventEmitter targetEmitter = e.With.GetComponent<OnDamageEventEmitter>();
+        if(targetEmitter != null){
+            targetEmitter.emit(new OnDamageRecievedEventData(e.Damage));
+        }
     }
 
-    public void LogB(){
-        Debug.Log("B");
-    }
-
-    public void LogC(){
-        Debug.Log("C");
+    public void EndProjectileAttack(AttackEndEventData e){
         Destroy(this.gameObject);
     }
 }
