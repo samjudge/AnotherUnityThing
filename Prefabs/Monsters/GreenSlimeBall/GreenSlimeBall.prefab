@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 114285489320894122, guid: 00d4d52313070d54595c1dceda0d8503, type: 2}
   MessageCanvasRoot: {fileID: 223625934768359422}
+  BillboardFace: {fileID: 0}
 --- !u!114 &114507867229890282
 MonoBehaviour:
   m_ObjectHideFlags: 1

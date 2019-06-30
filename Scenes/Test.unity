@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 694597761}
   - component: {fileID: 694597760}
   - component: {fileID: 694597759}
+  - component: {fileID: 694597762}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -251,6 +252,24 @@ Transform:
   m_Father: {fileID: 565797190}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 33, y: 0, z: 0}
+--- !u!114 &694597762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694597758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86eaf1086e713d9499d037187f399ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FollowX: 1
+  FollowY: 1
+  FollowZ: 1
+  Target: {fileID: 1087358134}
+  DistanceX: 0
+  DistanceY: -0.75
+  DistanceZ: 1.25
 --- !u!1001 &787337506
 Prefab:
   m_ObjectHideFlags: 0
@@ -290,21 +309,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114459832641289294, guid: 51438bd29b090c84599c34257f7e2e09,
+        type: 2}
+      propertyPath: BillboardFace
+      value: 
+      objectReference: {fileID: 694597760}
     - target: {fileID: 114255600274580160, guid: 51438bd29b090c84599c34257f7e2e09,
         type: 2}
       propertyPath: Face
       value: 
       objectReference: {fileID: 694597760}
-    - target: {fileID: 54085119093956298, guid: 51438bd29b090c84599c34257f7e2e09,
-        type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54085119093956298, guid: 51438bd29b090c84599c34257f7e2e09,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51438bd29b090c84599c34257f7e2e09, type: 2}
   m_IsPrefabAsset: 0
@@ -313,6 +327,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4803258763011310, guid: 51438bd29b090c84599c34257f7e2e09,
     type: 2}
   m_PrefabInternal: {fileID: 787337506}
+--- !u!1 &1087358134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1829928394198976, guid: 28660be049df8964d8b4ec4064e36fb9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2112684209}
 --- !u!4 &1133303486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4723279119811038, guid: 28660be049df8964d8b4ec4064e36fb9,

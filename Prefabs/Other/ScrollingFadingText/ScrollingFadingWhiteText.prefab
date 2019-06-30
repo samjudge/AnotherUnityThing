@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222748030051510530}
   - component: {fileID: 114834822780868016}
   - component: {fileID: 114285489320894122}
+  - component: {fileID: 114232714091263248}
   m_Layer: 0
   m_Name: ScrollingFadingWhiteText
   m_TagString: Untagged
@@ -29,6 +30,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114232714091263248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987138492182126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f4e9b1410b464419dbf14385883b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Face: {fileID: 0}
+  Transform: {fileID: 224446130816834706}
 --- !u!114 &114285489320894122
 MonoBehaviour:
   m_ObjectHideFlags: 1
