@@ -22,6 +22,13 @@ public class Billboard : MonoBehaviour {
     [SerializeField]
     private Transform Transform;
 
+    void Start(){
+        if(Face == null){
+            Debug.LogWarning("No face set for Billboard component, using main camera");
+            Face = Camera.main;
+        }
+    }
+
 	void Update () {
         Vector3 cameraFacing = Face.transform.rotation.eulerAngles;
 		Transform.rotation = Quaternion.Euler(
