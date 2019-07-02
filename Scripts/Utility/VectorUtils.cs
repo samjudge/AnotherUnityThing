@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Utilies for vector manipulation
  */
-public class VectorUtils : MonoBehaviour {
+public class VectorUtils {
     /**
      * Limits the component values of In to the component values of Max
      */

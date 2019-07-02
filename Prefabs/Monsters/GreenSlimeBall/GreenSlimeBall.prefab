@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114096263846832706}
   - component: {fileID: 114071500278793362}
   - component: {fileID: 114873559568572288}
+  - component: {fileID: 114734372884168842}
   m_Layer: 0
   m_Name: GreenSlimeBall
   m_TagString: Untagged
@@ -200,6 +201,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114734372884168842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860752007951866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3be467e06509d94488f176a5d66e3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114784843284265068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -214,6 +226,8 @@ MonoBehaviour:
   Health: {fileID: 114096263846832706}
   Emitter: {fileID: 114071500278793362}
   DamageTextFactory: {fileID: 114459832641289294}
+  GoapSystem: {fileID: 114734372884168842}
+  Body: {fileID: 54085119093956298}
 --- !u!114 &114873559568572288
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -45,6 +45,7 @@ public class InfinateSlimeForestMap : MonoBehaviour {
 
     public void SpawnExitZone(float x, float y){
         GameObject exitZone = Instantiate(AreaExitPrefab);
+        exitZone.transform.SetParent(this.transform);
         exitZone.transform.localPosition = new Vector3(x, 0f, y);
     }
 
@@ -53,6 +54,7 @@ public class InfinateSlimeForestMap : MonoBehaviour {
             IsRollLessThan(this.SlimeDensity)
         ){
             GameObject prefab = Instantiate(SlimePrefab);
+            prefab.transform.SetParent(this.transform);
             prefab.transform.localPosition = new Vector3(x, 0.3f, y);
         } else if( //roll for spwan tree
             IsRollLessThan(this.TreeDensity)
@@ -63,10 +65,12 @@ public class InfinateSlimeForestMap : MonoBehaviour {
             } else {
                 prefab = Instantiate(TreePrefabB);
             }
+            prefab.transform.SetParent(this.transform);
             prefab.transform.localPosition = new Vector3(x, 0.3f, y);
         }
         //spwan ground tile
         GameObject ground = Instantiate(GroundPrefab);
+        ground.transform.SetParent(this.transform);
         ground.transform.localPosition = new Vector3(x, 0f, y);
     }
 
