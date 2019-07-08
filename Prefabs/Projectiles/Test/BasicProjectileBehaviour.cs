@@ -47,12 +47,15 @@ public class BasicProjectileBehaviour : MonoBehaviour
     }
 
     public void OnTriggerEnter(Collider O){
-        Emitter.emit(
-            new AttackConnectEventData(O.gameObject, 25)
-        );
-        Emitter.emit(
-            new AttackEndEventData()
-        );
+        //only interact with damagables
+        if (O.GetComponent<OnDamageEventHandler>() != null){
+            Emitter.emit(
+                new AttackConnectEventData(O.gameObject, 25)
+            );
+            Emitter.emit(
+                new AttackEndEventData()
+            );
+        }
     }
 
     public void HitEnemy(AttackConnectEventData e){

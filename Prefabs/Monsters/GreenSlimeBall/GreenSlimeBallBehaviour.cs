@@ -16,6 +16,8 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     private GoapEventHandler GoapSystem;
     [SerializeField]
     private Rigidbody Body;
+    [SerializeField]
+    public MovableBody Movement;
 
     void Start(){
         GoapSystem.Events.Add(new GoapFunctionPair(
@@ -29,27 +31,25 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     }
     
     void Update(){
-        cMoveTimer += Time.deltaTime;
     }
 
     //goap testing
+    [SerializeField]
+    private float MaxSpeed = 1f;
+    [SerializeField]
+    private float Acceleration = 1f;
 
-    private float Speed = 10f;
-    private float MoveTimer = 0.1f;
-    private float cMoveTimer = 0f;
-    
     private uint WanderAroundScore(){
         return 1;
     }
 
     private void WanderAround(){
-        if(cMoveTimer >= MoveTimer) {
-            cMoveTimer = 0f;
-            Body.AddForce((new Vector3(Dice.Roll(-100,100), 0 , Dice.Roll(-100,100))).normalized * Speed);
-        }
+        Movement.Acceleration = Acceleration;
+        Movement.MaxSpeed = MaxSpeed;
+        Movement.Direction = (new Vector3(Dice.Roll(-100,100), 0 , Dice.Roll(-100,100))).normalized;
     }
 
-    private float PlayerSearchRadiusUnits = 1f;
+    private float PlayerSearchRadiusUnits = 2f;
     private Vector3 LastSeenPlayerLocation;
 
     private uint ChasePlayerInLOSScore(){
@@ -57,7 +57,7 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
             Physics.OverlapSphere(this.transform.position, PlayerSearchRadiusUnits);
         uint score = 0;
         foreach(Collider c in collisions){
-            if(c.GetComponent<PlayerAttackingBehaviour>() != null){
+            if(c.GetComponent<PlayerMovementBehaviour>() != null){
                 score = 2;
                 LastSeenPlayerLocation = c.transform.position;
             }
@@ -66,10 +66,9 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     }
 
     private void ChasePlayerInLOS(){
-        if(cMoveTimer >= MoveTimer) {
-            cMoveTimer = 0f;
-            Body.AddForce((LastSeenPlayerLocation - this.transform.position).normalized * Speed);
-        }
+        Movement.Acceleration = Acceleration;
+        Movement.MaxSpeed = MaxSpeed;
+        Movement.Direction = (LastSeenPlayerLocation - this.transform.position).normalized;
     }
 
     //health component + dtf component test

@@ -11,6 +11,26 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1860752007951866}
   m_IsPrefabAsset: 1
+--- !u!1 &1803096687594126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4736231597946120}
+  - component: {fileID: 65554558500546286}
+  - component: {fileID: 114079404075123222}
+  - component: {fileID: 114966751165207336}
+  - component: {fileID: 114430212743165260}
+  - component: {fileID: 114250130331617160}
+  m_Layer: 0
+  m_Name: AttackBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1860752007951866
 GameObject:
   m_ObjectHideFlags: 0
@@ -26,6 +46,7 @@ GameObject:
   - component: {fileID: 114071500278793362}
   - component: {fileID: 114873559568572288}
   - component: {fileID: 114734372884168842}
+  - component: {fileID: 114510066756624998}
   m_Layer: 0
   m_Name: GreenSlimeBall
   m_TagString: Untagged
@@ -82,18 +103,32 @@ Transform:
   m_Father: {fileID: 4803258763011310}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4736231597946120
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4803258763011310}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4803258763011310
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1860752007951866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.67, y: 0.347304, z: 5.5716867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4663714369188006}
   - {fileID: 224650867070483648}
+  - {fileID: 4736231597946120}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,6 +147,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65554558500546286
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114071500278793362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +171,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Handler: {fileID: 114873559568572288}
+--- !u!114 &114079404075123222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796c261dfa62ac34a9381f57840459a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoapSystem: {fileID: 114734372884168842}
+  Emitter: {fileID: 114430212743165260}
+  Body: {fileID: 54085119093956298}
+  AttackMaxSpeed: 2
+  AttackMaxAcceleration: 3
+  AttackDurationTimer: 0.65
+  ColorShifter: {fileID: 114250130331617160}
+  Text: {fileID: 114459832641289294}
+  Slime: {fileID: 114784843284265068}
+  Movement: {fileID: 114510066756624998}
 --- !u!114 &114096263846832706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +205,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentValue: 1000
   MaxValue: 1000
+--- !u!114 &114250130331617160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7028cb978034ec409b5a2b3e3561e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderable: {fileID: 212450726628873284}
+  Timer: 0
+  From: {x: 0, y: 0, z: 0}
+  To: {x: 1, y: 1, z: 1}
 --- !u!114 &114255600274580160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +233,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Face: {fileID: 0}
   Transform: {fileID: 4663714369188006}
+--- !u!114 &114430212743165260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf019b7020cde945824a15a69888206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackEventHandler: {fileID: 114966751165207336}
 --- !u!114 &114459832641289294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +280,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114510066756624998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860752007951866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10a0b4f0c96ce641bf1841ba818c260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Direction: {x: 0, y: 0, z: 0}
+  MaxSpeed: 0
+  Acceleration: 0
+  Body: {fileID: 54085119093956298}
 --- !u!114 &114578288318459102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +338,9 @@ MonoBehaviour:
   DamageTextFactory: {fileID: 114459832641289294}
   GoapSystem: {fileID: 114734372884168842}
   Body: {fileID: 54085119093956298}
+  Movement: {fileID: 114510066756624998}
+  MaxSpeed: 0.5
+  Acceleration: 2
 --- !u!114 &114873559568572288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +367,65 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: OnDamageRecievedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114966751165207336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1803096687594126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f619d86e4b9011740b35db8b9506dedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAttackLaunch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114079404075123222}
+        m_MethodName: StartAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AttackLaunchEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnAttackConnect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114079404075123222}
+        m_MethodName: DamagePlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AttackConnectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnAttackEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114079404075123222}
+        m_MethodName: EndAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: AttackEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!135 &135628632080028176
 SphereCollider:
