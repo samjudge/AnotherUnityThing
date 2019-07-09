@@ -14,7 +14,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     [SerializeField]
     public Collider CreatorCollider;
     [SerializeField]
-    public AttackEventEmitter Emitter;
+    public OnAttackEventEmitter Emitter;
     [SerializeField]
     public Billboard RenderableBody;
 
@@ -31,15 +31,15 @@ public class BasicProjectileBehaviour : MonoBehaviour
             //make sure it doesn't affect the creating object
             Physics.IgnoreCollision(GetComponent<Collider>(), CreatorCollider);
         }
-        Emitter.emit(
-            new AttackLaunchEventData()
+        Emitter.Emit(
+            new OnAttackLaunchEventData()
         );
     }
 
     public void Update(){
         if(cLifespan > Lifespan){
-            Emitter.emit(
-                new AttackEndEventData()
+            Emitter.Emit(
+                new OnAttackEndEventData()
             );
         }
         cLifespan += Time.deltaTime;
@@ -49,23 +49,23 @@ public class BasicProjectileBehaviour : MonoBehaviour
     public void OnTriggerEnter(Collider O){
         //only interact with damagables
         if (O.GetComponent<OnDamageEventHandler>() != null){
-            Emitter.emit(
-                new AttackConnectEventData(O.gameObject, 25)
+            Emitter.Emit(
+                new OnAttackConnectEventData(O.gameObject, 25)
             );
-            Emitter.emit(
-                new AttackEndEventData()
+            Emitter.Emit(
+                new OnAttackEndEventData()
             );
         }
     }
 
-    public void HitEnemy(AttackConnectEventData e){
+    public void HitEnemy(OnAttackConnectEventData e){
         OnDamageEventEmitter targetEmitter = e.With.GetComponent<OnDamageEventEmitter>();
         if(targetEmitter != null){
-            targetEmitter.emit(new OnDamageRecievedEventData(e.Damage));
+            targetEmitter.Emit(new OnDamageRecievedEventData(e.Damage));
         }
     }
 
-    public void EndProjectileAttack(AttackEndEventData e){
+    public void EndProjectileAttack(OnAttackEndEventData e){
         Destroy(this.gameObject);
     }
 }

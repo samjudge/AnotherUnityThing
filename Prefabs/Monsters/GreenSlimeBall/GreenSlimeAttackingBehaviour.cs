@@ -10,7 +10,7 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     [SerializeField]
     private GoapEventHandler GoapSystem;
     [SerializeField]
-    private AttackEventEmitter Emitter;
+    private OnAttackEventEmitter Emitter;
     [SerializeField]
     private Rigidbody Body;
     [SerializeField]
@@ -45,8 +45,8 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
         }
         if(cAttackDurationTimer >= AttackDurationTimer && AttackInProgress){
             Text.Make("Miss!");
-            Emitter.emit(
-                new AttackEndEventData()
+            Emitter.Emit(
+                new OnAttackEndEventData()
             );
         }
     }
@@ -62,11 +62,11 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     public void EmitAttackToCollidingPlayer(Collider collider){
         PlayerAttackedBehaviour Player = collider.GetComponent<PlayerAttackedBehaviour>();
         if(Player != null && AttackInProgress) {
-            Emitter.emit(
-                new AttackConnectEventData(collider.gameObject, 25)
+            Emitter.Emit(
+                new OnAttackConnectEventData(collider.gameObject, 25)
             );
-            Emitter.emit(
-                new AttackEndEventData()
+            Emitter.Emit(
+                new OnAttackEndEventData()
             );
         }
     }
@@ -95,8 +95,8 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
 
     public void LaunchAttack(){
         if(!AttackInProgress) {
-            Emitter.emit(
-                new AttackLaunchEventData()
+            Emitter.Emit(
+                new OnAttackLaunchEventData()
             );
         }
     }
@@ -116,8 +116,10 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
         ColorShifter.ShiftToColor(new Color(1f,0f,0f), new Color(1f,1f,1f), 0.5f);
     }
 
-    public void DamagePlayer(AttackConnectEventData e){
+    public void DamagePlayer(OnAttackConnectEventData e){
         Text.Make("Hit!");
-        e.With.GetComponent<PlayerAttackedBehaviour>().Health.TakeDamage(e.Damage);
+        e.With.GetComponent<OnDamageEventEmitter>().Emit(
+            new OnDamageRecievedEventData(e.Damage)
+        );
     }
 }

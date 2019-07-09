@@ -5,11 +5,11 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class KeyDownEventData
+public class OnKeyUpEventData
 {
     public KeyCode Key { get; private set; }
 
-    public KeyDownEventData(KeyCode Key){
+    public OnKeyUpEventData(KeyCode Key){
         this.Key = Key;
     }
 }

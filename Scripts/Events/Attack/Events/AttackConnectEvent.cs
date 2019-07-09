@@ -2,6 +2,6 @@
 using UnityEngine.Events;
 
 [Serializable]
-public class AttackConnectEvent : UnityEvent<AttackConnectEventData>
+public class AttackConnectEvent : UnityEvent<OnAttackConnectEventData>
 {
 }

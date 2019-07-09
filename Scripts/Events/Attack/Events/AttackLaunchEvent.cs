@@ -2,6 +2,6 @@
 using UnityEngine.Events;
 
 [Serializable]
-public class AttackLaunchEvent : UnityEvent<AttackLaunchEventData>
+public class AttackLaunchEvent : UnityEvent<OnAttackLaunchEventData>
 {
 }

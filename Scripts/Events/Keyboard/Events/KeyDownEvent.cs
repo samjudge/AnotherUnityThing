@@ -6,6 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
-public class KeyDownEvent : UnityEvent<KeyDownEventData>
+public class KeyDownEvent : UnityEvent<OnKeyDownEventData>
 {
 }

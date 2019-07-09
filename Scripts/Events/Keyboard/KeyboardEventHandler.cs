@@ -14,11 +14,11 @@ public class KeyboardEventHandler : MonoBehaviour{
     [SerializeField]
     private KeyUpEvent OnKeyUp;
 
-    private Dictionary<KeyCode, KeyPressedEventData> PressedKeyCodes;
+    private Dictionary<KeyCode, OnKeyPressedEventData> PressedKeyCodes;
     
     public void Awake(){ 
         this.PressedKeyCodes =
-            new Dictionary<KeyCode, KeyPressedEventData>();
+            new Dictionary<KeyCode, OnKeyPressedEventData>();
     }
 
     public void Update(){
@@ -26,17 +26,17 @@ public class KeyboardEventHandler : MonoBehaviour{
         foreach(KeyCode keyCode in keyCodes) {
             if(Input.GetKey(keyCode)){
                 if(PressedKeyCodes.ContainsKey(keyCode)){
-                    KeyPressedEventData e = PressedKeyCodes[keyCode];
+                    OnKeyPressedEventData e = PressedKeyCodes[keyCode];
                     e.duration += Time.deltaTime;
                     OnKeyPressed.Invoke(e);
                 } else {
-                    OnKeyDown.Invoke(new KeyDownEventData(keyCode));
-                    PressedKeyCodes.Add(keyCode, new KeyPressedEventData(keyCode));
+                    OnKeyDown.Invoke(new OnKeyDownEventData(keyCode));
+                    PressedKeyCodes.Add(keyCode, new OnKeyPressedEventData(keyCode));
                 }
             } else {
                 if(PressedKeyCodes.ContainsKey(keyCode)){
                     PressedKeyCodes.Remove(keyCode);
-                    OnKeyUp.Invoke(new KeyUpEventData(keyCode));
+                    OnKeyUp.Invoke(new OnKeyUpEventData(keyCode));
                 }
             }
         }

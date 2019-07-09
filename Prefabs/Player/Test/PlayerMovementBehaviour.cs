@@ -18,7 +18,7 @@ public class PlayerMovementBehaviour : MonoBehaviour {
         }
     }
 
-	public void MoveByKeyEvent(KeyPressedEventData e){
+	public void MoveByKeyEvent(OnKeyPressedEventData e){
         Vector3 force = new Vector3();
         switch(e.Key){
             case KeyCode.W : 

@@ -6,6 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
-public class KeyPressedEvent : UnityEvent<KeyPressedEventData>
+public class KeyPressedEvent : UnityEvent<OnKeyPressedEventData>
 {
 }

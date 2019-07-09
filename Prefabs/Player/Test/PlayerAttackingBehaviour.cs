@@ -9,7 +9,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     [SerializeField]
     private BasicProjectileBehaviourFactory Factory;
     
-    public void AttackByKeyEvent(KeyDownEventData e){
+    public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
            case KeyCode.Mouse0 :
                 LaunchAttack();

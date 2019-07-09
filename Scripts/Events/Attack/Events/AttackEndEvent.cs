@@ -2,6 +2,6 @@
 using System;
 
 [Serializable]
-public class AttackEndEvent : UnityEvent<AttackEndEventData>
+public class AttackEndEvent : UnityEvent<OnAttackEndEventData>
 {
 }

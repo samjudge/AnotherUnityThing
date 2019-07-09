@@ -9,7 +9,7 @@ public class OnDamageEventEmitter : MonoBehaviour {
     [SerializeField]
     private OnDamageEventHandler Handler;
 
-    public void emit(OnDamageRecievedEventData e){
+    public void Emit(OnDamageRecievedEventData e){
         Handler.OnReceiveDamage.Invoke(e);
     }
 }

@@ -5,13 +5,11 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class KeyPressedEventData
+public class OnKeyDownEventData
 {
     public KeyCode Key { get; private set; }
-    public float duration;
 
-    public KeyPressedEventData(KeyCode Key){
+    public OnKeyDownEventData(KeyCode Key){
         this.Key = Key;
-        this.duration = 0;
     }
 }
