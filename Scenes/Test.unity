@@ -412,7 +412,7 @@ MonoBehaviour:
     Missile Spell (Homing)\n4\tFireball Spell (Point Target AOE -> Good test of onAttackHandler)\n8\tStatus
     Effects UI\n8    \tSlime Poision Skill\n8    \tGoblins + Goblin Shaman (w/ raise
     dead skill)\n32\tPlayer Inventory\n8 \tEnemy Drops\n16\tSystem Menu\n8\tSound
-    Effects"
+    Effects\n16            Lock-on System"
 --- !u!222 &986860381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -446,6 +446,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2112684209}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1087358135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087358134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43bd79a643b65c4792a5606a12ff64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Face: {fileID: 0}
+  OnMouseMove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MouseMoveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnMouseClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MouseClickEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!4 &1133303486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4723279119811038, guid: 28660be049df8964d8b4ec4064e36fb9,

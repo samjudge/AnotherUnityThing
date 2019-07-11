@@ -27,7 +27,6 @@ public class HealthBar : MonoBehaviour
             Health.CurrentValue /
             Health.MaxValue
         );
-        Debug.Log("zzz");
         BarColorShifter.ShiftToColor(new Color(0,1,0,0), new Color(0,1,0,1));
         BaseBarColorShifter.ShiftToColor(new Color(1,0,0,0), new Color(1,0,0,1));
         StartCoroutine(ShiftBackAfter(DisplayForXSecondsOnUpdate));

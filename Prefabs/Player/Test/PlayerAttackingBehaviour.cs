@@ -8,13 +8,17 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private Camera Camera;
     [SerializeField]
     private BasicProjectileBehaviourFactory Factory;
-    
+
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
            case KeyCode.Mouse0 :
                 LaunchAttack();
                 break;
         }
+    }
+
+    public void LaunchMagicMissileByMouseClick(OnMouseClickEventData e){
+
     }
 
     private void LaunchAttack(){ 

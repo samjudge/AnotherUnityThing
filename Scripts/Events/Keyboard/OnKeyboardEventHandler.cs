@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * Keybord event lifecycle manager
  */
-public class KeyboardEventHandler : MonoBehaviour{
+public class OnKeyboardEventHandler : MonoBehaviour{
 
     [SerializeField]
     private KeyDownEvent OnKeyDown;

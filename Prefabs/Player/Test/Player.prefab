@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 114336935688040000}
   - component: {fileID: 114680357679257248}
   - component: {fileID: 114014729580408742}
+  - component: {fileID: 6422061621991237125}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -517,6 +518,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Handler: {fileID: 114680357679257248}
+--- !u!114 &6422061621991237125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829928394198976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43bd79a643b65c4792a5606a12ff64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Face: {fileID: 0}
+  OnMouseMove:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MouseMoveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnMouseClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: MouseClickEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1966050987115938
 GameObject:
   m_ObjectHideFlags: 0
