@@ -2,6 +2,6 @@
 using UnityEngine.Events;
 
 [Serializable]
-public class MouseClickEvent : UnityEvent<OnMouseClickEventData>
+public class OnMouseClickEvent : UnityEvent<OnMouseClickEventData>
 {
 }

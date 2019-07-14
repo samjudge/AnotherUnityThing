@@ -9,6 +9,8 @@ public class BasicProjectileBehaviour : MonoBehaviour
     [SerializeField]
     public Vector3 Direction = new Vector3(1,0,0);
     [SerializeField]
+    public float ProjectileSpeed = 1f;
+    [SerializeField]
     public float Lifespan = 1f;
     private float cLifespan = 0f;
     [SerializeField]
@@ -43,7 +45,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
             );
         }
         cLifespan += Time.deltaTime;
-        this.transform.position = this.transform.position + (Direction.normalized * Time.deltaTime);
+        this.transform.position = this.transform.position + (Direction.normalized * Time.deltaTime * ProjectileSpeed);
     }
 
     public void OnTriggerEnter(Collider O){

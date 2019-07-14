@@ -9,7 +9,9 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     [SerializeField]
     private Health Health;
     [SerializeField]
-    private OnDamageEventEmitter Emitter;
+    private OnDamageEventEmitter OnDamageEmitter;
+    [SerializeField]
+    private OnLockEventEmitter LockOnEmitter;
     [SerializeField]
     private ScrollingFadingTextBehaviourFactory DamageTextFactory;
     [SerializeField]
@@ -78,7 +80,24 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
         DamageTextFactory.Make("-" + DamageData.Damage.ToString());
         Health.TakeDamage(DamageData.Damage);
         if(Health.CurrentValue < 0) {
+            LockOnEmitter.Emit(
+                new OnLockReleaseEventData(
+                    this.LockOnEmitter.LockOnSource
+                )
+            );
             Destroy(this.gameObject);
+        }
+    }
+
+    public void LockAttained(){
+        //show hp bar?
+    }
+
+    public void ReleaseLockOnDeath(OnLockReleaseEventData e){
+        //hide hp bar?
+        //remove the lock
+        if(e.LockBehaviour != null){
+            e.LockBehaviour.RemoveLock();
         }
     }
 }

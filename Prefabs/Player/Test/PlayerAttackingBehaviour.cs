@@ -8,11 +8,19 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private Camera Camera;
     [SerializeField]
     private BasicProjectileBehaviourFactory Factory;
+    [SerializeField]
+    private PlayerLockOnBehaviour PlayerLockOn;
+    [SerializeField]
+    private Rigidbody Body;
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
            case KeyCode.Mouse0 :
-                LaunchAttack();
+                if(PlayerLockOn.IsLockedOn){
+                    LaunchAttackToLockedOnTaret();
+                } else {
+                    LaunchAttackToMousePoint();
+                }
                 break;
         }
     }
@@ -21,7 +29,18 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
 
     }
 
-    private void LaunchAttack(){ 
+    private void LaunchAttackToLockedOnTaret(){
+        if(PlayerLockOn.LockedOnTransform != null){
+            Vector3 direction = 
+                PlayerLockOn.LockedOnTransform.position -
+                transform.position;
+            Factory.Make(
+                direction
+            );
+        }
+    }
+
+    private void LaunchAttackToMousePoint(){ 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(
             new Vector3(0f, 1f, 0f),

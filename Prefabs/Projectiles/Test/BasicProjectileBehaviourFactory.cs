@@ -13,6 +13,8 @@ public class BasicProjectileBehaviourFactory : MonoBehaviour
     [SerializeField]
     public float Lifespan;
     [SerializeField]
+    public float ProjectileSpeed = 1f;
+    [SerializeField]
     public Camera Face;
 
     public BasicProjectileBehaviour Make(
@@ -25,6 +27,7 @@ public class BasicProjectileBehaviourFactory : MonoBehaviour
         Projectile.Direction = Direction;
         Projectile.Lifespan = Lifespan;
         Projectile.RenderableBody.SetFace(Face);
+        Projectile.ProjectileSpeed = ProjectileSpeed;
         return Projectile;
     }
 }

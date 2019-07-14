@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine.Events;
+using UnityEngine;
 
-[Serializable]
-public class OnMouseMoveEvent : UnityEvent<OnMouseMoveEventData>
+public interface LockOnable
 {
+    void MakeLock(GameObject On);
+    void RemoveLock();
 }

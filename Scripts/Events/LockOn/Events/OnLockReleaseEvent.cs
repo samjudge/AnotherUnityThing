@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 using UnityEngine.Events;
 
 [Serializable]
-public class OnMouseMoveEvent : UnityEvent<OnMouseMoveEventData>
+public class OnLockReleaseEvent : UnityEvent<OnLockReleaseEventData>
 {
 }
