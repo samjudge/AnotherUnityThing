@@ -14,7 +14,7 @@ public class ScrollingFadingTextBehaviourFactory : MonoBehaviour {
         ScrollingFadingTextBehaviour prefab = Instantiate(Prefab);
         prefab.Message.text = Message;
         prefab.Message.rectTransform.SetParent(MessageCanvasRoot.transform);
-        prefab.Message.rectTransform.localPosition = new Vector2(0, 0);
+        prefab.Message.rectTransform.localPosition = new Vector2(0, 0.25f);
         prefab.gameObject.GetComponent<Billboard>().SetFace(BillboardFace);
         return prefab;
     }

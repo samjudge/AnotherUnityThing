@@ -9,35 +9,45 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     [SerializeField]
     private BasicProjectileBehaviourFactory Factory;
     [SerializeField]
-    private PlayerLockOnBehaviour PlayerLockOn;
+    private PlayerLockOnBehaviour LockOnBehaviour;
+
+    //temp
     [SerializeField]
-    private Rigidbody Body;
+    private MagicMissileBehaviour MagicMissile;
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
-           case KeyCode.Mouse0 :
-                if(PlayerLockOn.IsLockedOn){
-                    LaunchAttackToLockedOnTaret();
+            case KeyCode.Mouse0 :
+                if(LockOnBehaviour.LockedOntoBody != null) {
+                    LaunchAttackToBody(LockOnBehaviour.LockedOntoBody);
                 } else {
                     LaunchAttackToMousePoint();
+                }
+                break;
+            case KeyCode.Mouse1 :
+                if(LockOnBehaviour.LockedOntoBody != null) {
+                    LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
+                } else {
+                    Debug.Log("bzzt");
                 }
                 break;
         }
     }
 
-    public void LaunchMagicMissileByMouseClick(OnMouseClickEventData e){
-
+    public void LaunchMagicMissileToBody(Transform Body){
+        MagicMissileBehaviour MagicMissle = Instantiate(MagicMissile);
+        Vector3 direction = Body.position -
+            transform.position;
+        MagicMissle.Direction = direction;
+        MagicMissle.transform.position = this.transform.position;
     }
 
-    private void LaunchAttackToLockedOnTaret(){
-        if(PlayerLockOn.LockedOnTransform != null){
-            Vector3 direction = 
-                PlayerLockOn.LockedOnTransform.position -
-                transform.position;
-            Factory.Make(
-                direction
-            );
-        }
+    private void LaunchAttackToBody(Transform Body){
+        Vector3 direction = Body.position -
+            transform.position;
+        Factory.Make(
+            direction
+        );
     }
 
     private void LaunchAttackToMousePoint(){ 

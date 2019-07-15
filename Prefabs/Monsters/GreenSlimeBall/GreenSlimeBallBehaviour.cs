@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GreenSlimeBallBehaviour : MonoBehaviour
 {
@@ -20,6 +21,16 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     private Rigidbody Body;
     [SerializeField]
     public MovableBody Movement;
+    [SerializeField]
+    private Image LockOnReticule;
+    [SerializeField]
+    private Camera Face;
+
+    void Awake(){
+        if(Face == null){
+            Face = Camera.main;
+        }
+    }
 
     void Start(){
         GoapSystem.Events.Add(new GoapFunctionPair(
@@ -32,8 +43,7 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
         ));
     }
     
-    void Update(){
-    }
+    void Update(){}
 
     //goap testing
     [SerializeField]
@@ -80,24 +90,20 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
         DamageTextFactory.Make("-" + DamageData.Damage.ToString());
         Health.TakeDamage(DamageData.Damage);
         if(Health.CurrentValue < 0) {
-            LockOnEmitter.Emit(
-                new OnLockReleaseEventData(
-                    this.LockOnEmitter.LockOnSource
-                )
-            );
+            LockOnEmitter.Emit(new OnLockReleaseEventData());
             Destroy(this.gameObject);
         }
     }
 
     public void LockAttained(){
+        //show reticule
+        LockOnReticule.enabled = true;
         //show hp bar?
     }
 
     public void ReleaseLockOnDeath(OnLockReleaseEventData e){
+        //hide reticule
+        LockOnReticule.enabled = false;
         //hide hp bar?
-        //remove the lock
-        if(e.LockBehaviour != null){
-            e.LockBehaviour.RemoveLock();
-        }
     }
 }
