@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7caafc848a4414a96a2aec7768dbed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Direction: {x: 0, y: 0, z: 0}
+  Lifetime: 1
+  Speed: 2
+  MaxArcForce: 1
 --- !u!1 &1440992956003140960
 GameObject:
   m_ObjectHideFlags: 0

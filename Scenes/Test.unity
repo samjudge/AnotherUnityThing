@@ -591,6 +591,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 32.883
       objectReference: {fileID: 0}
+    - target: {fileID: 23838343201725194, guid: da5661090e8a9ae4e985c99428076f9e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5661090e8a9ae4e985c99428076f9e, type: 3}
 --- !u!1001 &2112684209
@@ -653,12 +658,6 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 694597760}
-    - target: {fileID: 114997609587325622, guid: 28660be049df8964d8b4ec4064e36fb9,
-        type: 3}
-      propertyPath: MagicMissile
-      value: 
-      objectReference: {fileID: 453467193369949374, guid: 7b1b5709053d138478bd693c1df15512,
-        type: 3}
     - target: {fileID: 114160286539920034, guid: 28660be049df8964d8b4ec4064e36fb9,
         type: 3}
       propertyPath: Face

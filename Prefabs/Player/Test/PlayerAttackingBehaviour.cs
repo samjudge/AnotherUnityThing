@@ -15,6 +15,17 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     [SerializeField]
     private MagicMissileBehaviour MagicMissile;
 
+    public void AttackOnKeyDown(OnKeyPressedEventData e){
+        switch(e.Key){
+            case KeyCode.Mouse1 :
+                if(LockOnBehaviour.LockedOntoBody != null) {
+                    LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
+                } else {
+                }
+                break;
+        }
+    }
+
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
             case KeyCode.Mouse0 :
@@ -28,7 +39,6 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                 if(LockOnBehaviour.LockedOntoBody != null) {
                     LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
                 } else {
-                    Debug.Log("bzzt");
                 }
                 break;
         }
