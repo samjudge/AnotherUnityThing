@@ -48,7 +48,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
         MagicMissileBehaviour MagicMissle = Instantiate(MagicMissile);
         Vector3 direction = Body.position -
             transform.position;
-        MagicMissle.Direction = direction;
+        MagicMissile.EndTargetBody = Body;
         MagicMissle.transform.position = this.transform.position;
     }
 
