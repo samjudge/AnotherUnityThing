@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 114997609587325622}
   - component: {fileID: 114476970335272428}
   - component: {fileID: 114908204136016710}
+  - component: {fileID: 3447935833459303850}
   - component: {fileID: 114882469262447554}
   - component: {fileID: 114336935688040000}
   - component: {fileID: 114680357679257248}
@@ -414,17 +415,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114997609587325622}
-        m_MethodName: AttackOnKeyDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: KeyPressedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnKeyUp:
@@ -459,10 +449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
-  Factory: {fileID: 114908204136016710}
+  BasicProjectileFactory: {fileID: 114908204136016710}
+  MagicMissile: {fileID: 3447935833459303850}
   LockOnBehaviour: {fileID: 8618432743061349176}
-  MagicMissile: {fileID: 453467193369949374, guid: 7b1b5709053d138478bd693c1df15512,
-    type: 3}
 --- !u!114 &114476970335272428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +484,20 @@ MonoBehaviour:
   Lifespan: 0.2
   ProjectileSpeed: 2
   Face: {fileID: 0}
+--- !u!114 &3447935833459303850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829928394198976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89718c2cd4b81454eaa1f5ad9143e5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 453467193369949374, guid: 7b1b5709053d138478bd693c1df15512, type: 3}
+  Owner: {fileID: 135411978764487118}
 --- !u!114 &114882469262447554
 MonoBehaviour:
   m_ObjectHideFlags: 0

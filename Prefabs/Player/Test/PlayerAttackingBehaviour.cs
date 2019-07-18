@@ -7,24 +7,11 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     [SerializeField]
     private Camera Camera;
     [SerializeField]
-    private BasicProjectileBehaviourFactory Factory;
+    private BasicProjectileBehaviourFactory BasicProjectileFactory;
+    [SerializeField]
+    private MagicMissileBehaviourFactory MagicMissile;
     [SerializeField]
     private PlayerLockOnBehaviour LockOnBehaviour;
-
-    //temp
-    [SerializeField]
-    private MagicMissileBehaviour MagicMissile;
-
-    public void AttackOnKeyDown(OnKeyPressedEventData e){
-        switch(e.Key){
-            case KeyCode.Mouse1 :
-                if(LockOnBehaviour.LockedOntoBody != null) {
-                    LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
-                } else {
-                }
-                break;
-        }
-    }
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
@@ -45,17 +32,13 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     }
 
     public void LaunchMagicMissileToBody(Transform Body){
-        MagicMissileBehaviour MagicMissle = Instantiate(MagicMissile);
-        Vector3 direction = Body.position -
-            transform.position;
-        MagicMissile.EndTargetBody = Body;
-        MagicMissle.transform.position = this.transform.position;
+        MagicMissile.Make(Body);
     }
 
     private void LaunchAttackToBody(Transform Body){
         Vector3 direction = Body.position -
             transform.position;
-        Factory.Make(
+        BasicProjectileFactory.Make(
             direction
         );
     }
@@ -70,7 +53,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
         plane.Raycast(ray, out distance);
         Vector3 point = ray.GetPoint(distance);
         Vector3 direction = point - transform.position;
-        Factory.Make(
+        BasicProjectileFactory.Make(
             direction
         );
     }

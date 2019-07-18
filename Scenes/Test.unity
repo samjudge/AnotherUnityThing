@@ -425,10 +425,10 @@ MonoBehaviour:
     \ -> 2 to 4 Hours\n4  -> 1 Night (6 Hours)\n8  -> 2 Night (12 Hours)\n16 -> 1
     Weekend Day\n32 -> Whole Weekend\n64 -> Whole Week\n\nEstimate    Description\n1\tPlayer
     HP Bar (Done)\n16  \tSkill System\n16  \tStatus System\n16\tSkill Bar UI\n4\tMagic
-    Missile Spell (Homing)\n4\tFireball Spell (Point Target AOE -> Good test of onAttackHandler)\n8\tStatus
-    Effects UI\n8    \tSlime Poision Skill\n8    \tGoblins + Goblin Shaman (w/ raise
-    dead skill)\n32\tPlayer Inventory\n8 \tEnemy Drops\n16\tSystem Menu\n8\tSound
-    Effects\n16            Lock-on System (Done!)"
+    Missile Spell (Homing) (Done!)\n4\tFireball Spell (Point Target AOE -> Good test
+    of onAttackHandler)\n8\tStatus Effects UI\n8    \tSlime Poision Skill\n8    \tGoblins
+    + Goblin Shaman (w/ raise dead skill)\n32\tPlayer Inventory\n8 \tEnemy Drops\n16\tSystem
+    Menu\n8\tSound Effects\n16            Lock-on System (Done!)"
 --- !u!222 &986860381
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -668,5 +668,20 @@ PrefabInstance:
       propertyPath: Face
       value: 
       objectReference: {fileID: 694597760}
+    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
+        type: 3}
+      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
+        type: 3}
+      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
+        type: 3}
+      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28660be049df8964d8b4ec4064e36fb9, type: 3}
