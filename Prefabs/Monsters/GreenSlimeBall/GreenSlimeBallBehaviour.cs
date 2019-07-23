@@ -56,9 +56,9 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     }
 
     private void WanderAround(){
-        Movement.Acceleration = Acceleration;
-        Movement.MaxSpeed = MaxSpeed;
-        Movement.Direction = (new Vector3(Dice.Roll(-100,100), 0 , Dice.Roll(-100,100))).normalized;
+        Movement.SetAcceleration(Acceleration);
+        Movement.SetMaxSpeed(MaxSpeed);
+        Movement.SetDirection((new Vector3(Dice.Roll(-100,100), 0 , Dice.Roll(-100,100))).normalized);
     }
 
     private float PlayerSearchRadiusUnits = 2f;
@@ -78,9 +78,9 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     }
 
     private void ChasePlayerInLOS(){
-        Movement.Acceleration = Acceleration;
-        Movement.MaxSpeed = MaxSpeed;
-        Movement.Direction = (LastSeenPlayerLocation - this.transform.position).normalized;
+        Movement.SetAcceleration(Acceleration);
+        Movement.SetMaxSpeed(MaxSpeed);
+        Movement.SetDirection((LastSeenPlayerLocation - this.transform.position).normalized);
     }
 
     //health component + dtf component test

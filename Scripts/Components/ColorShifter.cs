@@ -36,12 +36,12 @@ public class ColorShifter : MonoBehaviour
         if(timer <= 0) throw new Exception("Color shifter timer input must be > 0s!");
         cTimer = 0;
         Timer = timer;
-        From = new Vector3(
+        this.From = new Vector3(
             from.r,
             from.g,
             from.b
         );
-        To = new Vector3(
+        this.To = new Vector3(
             to.r,
             to.g,
             to.b

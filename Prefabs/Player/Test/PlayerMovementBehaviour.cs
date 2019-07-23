@@ -5,35 +5,32 @@ using UnityEngine;
 public class PlayerMovementBehaviour : MonoBehaviour {
 
     [SerializeField]
-    private float MaxSpeed;
-    [SerializeField]
-    private float Acceleration;
-    [SerializeField]
-    private Rigidbody Body;
+    private MovableBody Movement;
 
-    void FixedUpdate(){
-        //limit the speed of the provisioned body
-        if(Body.velocity.magnitude > MaxSpeed){
-            Body.velocity = Body.velocity.normalized * MaxSpeed;
-        }
+    private Vector3 ForceByKeyPress;
+    private Vector3 LastSeenForceByKeyPress;
+
+    void Update() {
+        Movement.RemoveFromDirection(LastSeenForceByKeyPress.normalized, 1);
+        LastSeenForceByKeyPress = ForceByKeyPress;
+        Movement.AddToDirection(ForceByKeyPress.normalized, 1);
+        ForceByKeyPress = Vector3.zero;
     }
 
 	public void MoveByKeyEvent(OnKeyPressedEventData e){
-        Vector3 force = new Vector3();
         switch(e.Key){
             case KeyCode.W : 
-                force.z += Acceleration * Time.deltaTime;
+                ForceByKeyPress.z += 1;
                 break;
             case KeyCode.S : 
-                force.z -= Acceleration * Time.deltaTime;
+                ForceByKeyPress.z -= 1;
                 break;
             case KeyCode.A : 
-                force.x -= Acceleration * Time.deltaTime;
+                ForceByKeyPress.x -= 1;
                 break;
             case KeyCode.D : 
-                force.x += Acceleration * Time.deltaTime;
+                ForceByKeyPress.x += 1;
                 break;
         }
-        Body.AddForce(force);
     }
 }

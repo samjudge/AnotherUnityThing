@@ -14,21 +14,13 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     [SerializeField]
     private Rigidbody Body;
     [SerializeField]
-    private float AttackMaxSpeed;
-    [SerializeField]
-    private float AttackMaxAcceleration;
-    [SerializeField]
-    private float AttackDurationTimer = 1.5f;
-    private float cAttackDurationTimer;
-    [SerializeField]
-    private ColorShifter ColorShifter;
-    [SerializeField]
     private ScrollingFadingTextBehaviourFactory Text;
     [SerializeField]
     private GreenSlimeBallBehaviour Slime;
     [SerializeField]
     private MovableBody Movement;
-
+    [SerializeField]
+    private Skill[] Skills;
 
     void Start(){
         GoapSystem.Events.Add(
@@ -40,15 +32,13 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     }
     
     void Update(){
-        if(cAttackDurationTimer < AttackDurationTimer && AttackInProgress){
-            cAttackDurationTimer += Time.deltaTime;
-        }
-        if(cAttackDurationTimer >= AttackDurationTimer && AttackInProgress){
-            Text.Make("Miss!");
-            Emitter.Emit(
-                new OnAttackEndEventData()
-            );
-        }
+        //if(cAttackDurationTimer >= AttackDurationTimer && AttackInProgress){
+        //
+        
+        //    Emitter.Emit(
+        //        new OnAttackEndEventData()
+        //    );
+        //}
     }
 
     public void OnTriggerEnter(Collider O){
@@ -72,19 +62,20 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     }
 
     private float PlayerAttackRadiusUnits = 1.5f;
-    private float AttackTimer = 5f;
+    private float AttackTimer = 2f;
     private float cAttackTimer = 0f;
     private Vector3 LastSeenPlayerLocation;
     private bool AttackInProgress = false;
+    private bool DidAttackHit = false;
 
-    private uint AttackPlayerWhenClose(){
+    private uint AttackPlayerWhenClose() {
         if(AttackInProgress) return 3;
         cAttackTimer += Time.deltaTime;
         if(cAttackTimer > AttackTimer) {
             Collider[] collisions =
                 Physics.OverlapSphere(this.transform.position, PlayerAttackRadiusUnits);
-            foreach(Collider c in collisions){
-                if(c.GetComponent<PlayerAttackedBehaviour>() != null){
+            foreach(Collider c in collisions) {
+                if(c.GetComponent<PlayerAttackedBehaviour>() != null) {
                     LastSeenPlayerLocation = c.transform.position;
                     return 3;
                 }
@@ -93,30 +84,34 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
         return 0;
     }
 
-    public void LaunchAttack(){
+    public void LaunchAttack() {
         if(!AttackInProgress) {
-            Emitter.Emit(
-                new OnAttackLaunchEventData()
+            cAttackTimer = 0f;
+            AttackInProgress = true;
+            DidAttackHit = false;
+            Skills[0].GetEmitter().Emit(
+                new OnPointTargetCastEventData(
+                    Slime.gameObject,
+                    LastSeenPlayerLocation,
+                    new Dictionary<string, float>
+                    {
+                        { "ChargeMaxSpeed", 2 },
+                        { "ChargeMaxAcceleration", 5 }
+                    }
+                )
             );
         }
     }
 
-    public void StartAttack(){
-        AttackInProgress = true;
-        ColorShifter.ShiftToColor(new Color(1f,1f,1f), new Color(1f,0f,0f), 0.5f);
-        cAttackTimer = 0f;
-        cAttackDurationTimer = 0f;
-        Movement.MaxSpeed = AttackMaxSpeed;
-        Movement.Acceleration = AttackMaxAcceleration;
-        Movement.Direction = (LastSeenPlayerLocation - this.transform.position).normalized * AttackMaxAcceleration;
-    }
-
-    public void EndAttack(){
+    public void EndAttack() {
         AttackInProgress = false;
-        ColorShifter.ShiftToColor(new Color(1f,0f,0f), new Color(1f,1f,1f), 0.5f);
+        if(!DidAttackHit) {
+            Text.Make("Miss!");
+        }
     }
 
-    public void DamagePlayer(OnAttackConnectEventData e){
+    public void DamagePlayer(OnAttackConnectEventData e) {
+        DidAttackHit = true;
         Text.Make("Hit!");
         e.With.GetComponent<OnDamageEventEmitter>().Emit(
             new OnDamageRecievedEventData(e.Damage)

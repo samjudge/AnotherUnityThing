@@ -368,6 +368,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114275353007345630, guid: 51438bd29b090c84599c34257f7e2e09,
+        type: 3}
+      propertyPath: Skills.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275353007345630, guid: 51438bd29b090c84599c34257f7e2e09,
+        type: 3}
+      propertyPath: Skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 8784043978294255811, guid: 191ca870f2a7c7b45addebde0147b6ce,
+        type: 3}
+    - target: {fileID: 114232485915459280, guid: 51438bd29b090c84599c34257f7e2e09,
+        type: 3}
+      propertyPath: OnAttackLaunch.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51438bd29b090c84599c34257f7e2e09, type: 3}
 --- !u!1 &986860379
@@ -594,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 23838343201725194, guid: da5661090e8a9ae4e985c99428076f9e,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5661090e8a9ae4e985c99428076f9e, type: 3}
@@ -668,20 +684,5 @@ PrefabInstance:
       propertyPath: Face
       value: 
       objectReference: {fileID: 694597760}
-    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
-        type: 3}
-      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
-        type: 3}
-      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114242721274409320, guid: 28660be049df8964d8b4ec4064e36fb9,
-        type: 3}
-      propertyPath: OnKeyUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28660be049df8964d8b4ec4064e36fb9, type: 3}

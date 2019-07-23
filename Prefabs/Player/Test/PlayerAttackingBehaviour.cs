@@ -9,9 +9,10 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     [SerializeField]
     private BasicProjectileBehaviourFactory BasicProjectileFactory;
     [SerializeField]
-    private MagicMissileBehaviourFactory MagicMissile;
-    [SerializeField]
     private PlayerLockOnBehaviour LockOnBehaviour;
+
+    [SerializeField]
+    private Skill[] Skills;
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
@@ -24,15 +25,33 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                 break;
             case KeyCode.Mouse1 :
                 if(LockOnBehaviour.LockedOntoBody != null) {
-                    LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
+                    Skills[0].GetEmitter().Emit(
+                        new OnPointTargetCastEventData(
+                            gameObject,
+                            MousePointToWorldPos(),
+                            new Dictionary<string, float>
+                            {
+                                { "ChargeMaxSpeed", 5 },
+                                { "ChargeMaxAcceleration", 400 }
+                            }
+                        )
+                    );
+                    //LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
                 } else {
+                    Skills[0].GetEmitter().Emit(
+                        new OnPointTargetCastEventData(
+                            gameObject,
+                            MousePointToWorldPos(),
+                            new Dictionary<string, float>
+                            {
+                                { "ChargeMaxSpeed", 5 },
+                                { "ChargeMaxAcceleration", 400 }
+                            }
+                        )
+                    );
                 }
                 break;
         }
-    }
-
-    public void LaunchMagicMissileToBody(Transform Body){
-        MagicMissile.Make(Body);
     }
 
     private void LaunchAttackToBody(Transform Body){
@@ -43,7 +62,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
         );
     }
 
-    private void LaunchAttackToMousePoint(){ 
+    private Vector3 MousePointToWorldPos(){
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(
             new Vector3(0f, 1f, 0f),
@@ -52,6 +71,11 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
         float distance = 0f;
         plane.Raycast(ray, out distance);
         Vector3 point = ray.GetPoint(distance);
+        return point;
+    }
+
+    private void LaunchAttackToMousePoint(){ 
+        Vector3 point = MousePointToWorldPos();
         Vector3 direction = point - transform.position;
         BasicProjectileFactory.Make(
             direction

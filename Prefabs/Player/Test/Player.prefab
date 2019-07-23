@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4515445531280616}
   - component: {fileID: 212905961915342740}
   - component: {fileID: 114160286539920034}
+  - component: {fileID: 778456397}
   m_Layer: 0
   m_Name: Renderable
   m_TagString: Untagged
@@ -186,6 +187,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Face: {fileID: 0}
   Transform: {fileID: 4515445531280616}
+--- !u!114 &778456397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339754713292596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7028cb978034ec409b5a2b3e3561e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderable: {fileID: 212905961915342740}
+  Timer: 0
+  From: {x: 1, y: 1, z: 1}
+  To: {x: 1, y: 1, z: 1}
 --- !u!1 &1567020119652060
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +339,7 @@ GameObject:
   - component: {fileID: 114680357679257248}
   - component: {fileID: 114014729580408742}
   - component: {fileID: 7991986558802414848}
+  - component: {fileID: 1087358135}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -354,7 +372,7 @@ Rigidbody:
   m_GameObject: {fileID: 1829928394198976}
   serializedVersion: 2
   m_Mass: 1.25
-  m_Drag: 0.1
+  m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -450,8 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
   BasicProjectileFactory: {fileID: 114908204136016710}
-  MagicMissile: {fileID: 3447935833459303850}
   LockOnBehaviour: {fileID: 8618432743061349176}
+  Skills:
+  - {fileID: 8784043978294255811, guid: 191ca870f2a7c7b45addebde0147b6ce, type: 3}
 --- !u!114 &114476970335272428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,9 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4245f8ddd3b7ca47a120780a1532ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 1
-  Acceleration: 2048
-  Body: {fileID: 54729476022355932}
+  Movement: {fileID: 1087358135}
 --- !u!114 &114908204136016710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,7 +514,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 453467193369949374, guid: 7b1b5709053d138478bd693c1df15512, type: 3}
-  Owner: {fileID: 135411978764487118}
 --- !u!114 &114882469262447554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +617,22 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnMouseClickEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!114 &1087358135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829928394198976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10a0b4f0c96ce641bf1841ba818c260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Direction: {x: 0, y: 0, z: 0}
+  MaxSpeed: 2
+  Acceleration: 20
+  Body: {fileID: 54729476022355932}
 --- !u!1 &1966050987115938
 GameObject:
   m_ObjectHideFlags: 0

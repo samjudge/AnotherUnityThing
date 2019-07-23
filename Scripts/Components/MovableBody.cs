@@ -7,11 +7,11 @@ using UnityEngine;
 public class MovableBody : MonoBehaviour
 {
     [SerializeField]
-    public Vector3 Direction;
+    private Vector3 Direction;
     [SerializeField]
-    public float MaxSpeed;
+    private float MaxSpeed;
     [SerializeField]
-    public float Acceleration;
+    private float Acceleration;
     [SerializeField]
     private Rigidbody Body;
     
@@ -21,6 +21,39 @@ public class MovableBody : MonoBehaviour
         if(Body.velocity.magnitude > MaxSpeed){
             Body.velocity = Body.velocity.normalized * MaxSpeed;
         }
+    }
+    
+    public float GetAcceleration() {
+        return this.Acceleration;
+    }
+
+    public void SetAcceleration(float Acceleration) {
+        this.Acceleration = Acceleration;
+    }
+    
+    public float GetMaxSpeed(){
+        return this.MaxSpeed;
+    }
+
+    public void SetMaxSpeed(float MaxSpeed) {
+        this.MaxSpeed = MaxSpeed;
+    }
+
+    public Vector3 GetDirection(){
+        return Direction;
+    }
+
+    public void SetDirection(Vector3 Direction) {
+        Direction = Vector3.zero;
+        AddToDirection(Direction, 1);
+    }
+
+    public void AddToDirection(Vector3 Direction, float WithMagnitude) {
+        this.Direction += Direction.normalized * WithMagnitude;
+    }
+
+    public void RemoveFromDirection(Vector3 Direction, float WithMagnitude) {
+        AddToDirection(Direction, -WithMagnitude);
     }
     
 }
