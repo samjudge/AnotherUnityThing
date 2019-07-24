@@ -86,6 +86,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCancelCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCancelCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnPointTargetCast:
     m_PersistentCalls:
       m_Calls: []
@@ -95,7 +99,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1682953834435408180}
-        m_MethodName: Make
+        m_MethodName: Cast
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

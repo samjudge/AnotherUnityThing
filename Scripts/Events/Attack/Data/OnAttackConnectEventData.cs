@@ -3,9 +3,9 @@
 public class OnAttackConnectEventData
 {
     public GameObject With;
-    public int Damage;
+    public float Damage;
 
-    public OnAttackConnectEventData(GameObject With, int Damage){
+    public OnAttackConnectEventData(GameObject With, float Damage){
         this.With = With;
         this.Damage = Damage;
     }

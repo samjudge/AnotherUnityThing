@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f099c7d077a931c47b11fc72f2df242d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsCurrentlyAttacking: 0
 --- !u!114 &8784043978294255811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +85,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnCancelCast:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5091813462315221984}
+        m_MethodName: CancelCharge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnCancelCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnPointTargetCast:
     m_PersistentCalls:
       m_Calls:

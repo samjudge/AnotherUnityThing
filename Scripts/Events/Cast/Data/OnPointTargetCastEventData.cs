@@ -5,12 +5,12 @@ public class OnPointTargetCastEventData
 {
     public Vector3 Target;
     public GameObject Caster;
-    public Dictionary<string, float> Stats;
+    public StatCollection Stats;
 
     public OnPointTargetCastEventData(
         GameObject Caster,
         Vector3 Target,
-        Dictionary<string, float> Stats
+        StatCollection Stats
     ) {
         this.Caster = Caster;
         this.Target = Target;

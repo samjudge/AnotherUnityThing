@@ -29,24 +29,15 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                         new OnPointTargetCastEventData(
                             gameObject,
                             MousePointToWorldPos(),
-                            new Dictionary<string, float>
-                            {
-                                { "ChargeMaxSpeed", 5 },
-                                { "ChargeMaxAcceleration", 400 }
-                            }
+                            new StatCollection()
                         )
                     );
-                    //LaunchMagicMissileToBody(LockOnBehaviour.LockedOntoBody);
                 } else {
                     Skills[0].GetEmitter().Emit(
                         new OnPointTargetCastEventData(
                             gameObject,
                             MousePointToWorldPos(),
-                            new Dictionary<string, float>
-                            {
-                                { "ChargeMaxSpeed", 5 },
-                                { "ChargeMaxAcceleration", 400 }
-                            }
+                            new StatCollection()
                         )
                     );
                 }

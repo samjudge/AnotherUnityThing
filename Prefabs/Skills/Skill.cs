@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class Skill : MonoBehaviour
+public class Skill : MonoBehaviour
 {
     [SerializeField]
     private OnCastEventHandler OnCastHandler;

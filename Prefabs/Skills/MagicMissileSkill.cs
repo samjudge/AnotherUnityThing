@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class MagicMissileBehaviourFactory : MonoBehaviour
+public class MagicMissileSkill : MonoBehaviour
 {
     [SerializeField]
     private MagicMissileBehaviour Prefab;
 
-    public void Make(
+    public void Cast(
         OnLockedTargetCastEventData e
     ){
         MagicMissileBehaviour Projectile =

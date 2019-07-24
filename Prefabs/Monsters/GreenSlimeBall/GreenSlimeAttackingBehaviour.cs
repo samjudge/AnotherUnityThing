@@ -20,7 +20,7 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     [SerializeField]
     private MovableBody Movement;
     [SerializeField]
-    private Skill[] Skills;
+    private SkillCollection Skills;
 
     void Start(){
         GoapSystem.Events.Add(
@@ -31,35 +31,7 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
         );
     }
     
-    void Update(){
-        //if(cAttackDurationTimer >= AttackDurationTimer && AttackInProgress){
-        //
-        
-        //    Emitter.Emit(
-        //        new OnAttackEndEventData()
-        //    );
-        //}
-    }
-
-    public void OnTriggerEnter(Collider O){
-        EmitAttackToCollidingPlayer(O);
-    }
-
-    public void OnTriggerStay(Collider O){
-        EmitAttackToCollidingPlayer(O);
-    }
-
-    public void EmitAttackToCollidingPlayer(Collider collider){
-        PlayerAttackedBehaviour Player = collider.GetComponent<PlayerAttackedBehaviour>();
-        if(Player != null && AttackInProgress) {
-            Emitter.Emit(
-                new OnAttackConnectEventData(collider.gameObject, 25)
-            );
-            Emitter.Emit(
-                new OnAttackEndEventData()
-            );
-        }
-    }
+    void Update(){ }
 
     private float PlayerAttackRadiusUnits = 1.5f;
     private float AttackTimer = 2f;
@@ -69,7 +41,9 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     private bool DidAttackHit = false;
 
     private uint AttackPlayerWhenClose() {
-        if(AttackInProgress) return 3;
+        if(AttackInProgress) {
+            return 3;
+        }
         cAttackTimer += Time.deltaTime;
         if(cAttackTimer > AttackTimer) {
             Collider[] collisions =
@@ -89,32 +63,39 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
             cAttackTimer = 0f;
             AttackInProgress = true;
             DidAttackHit = false;
-            Skills[0].GetEmitter().Emit(
-                new OnPointTargetCastEventData(
-                    Slime.gameObject,
-                    LastSeenPlayerLocation,
-                    new Dictionary<string, float>
-                    {
-                        { "ChargeMaxSpeed", 2 },
-                        { "ChargeMaxAcceleration", 5 }
-                    }
-                )
-            );
+            Emitter.Emit(new OnAttackLaunchEventData());
         }
     }
 
-    public void EndAttack() {
+    public void AttackStart(OnAttackLaunchEventData e) {
+        Skills.GetSkills()[0].GetEmitter().Emit(
+            new OnPointTargetCastEventData(
+                Slime.gameObject,
+                LastSeenPlayerLocation,
+                new StatCollection(
+                    new KeyValuePair<string, float>(
+                        "ChargeMaxSpeed", 0
+                    ),
+                    new KeyValuePair<string, float>(
+                        "ChargeMaxAcceleration", 0
+                    ),
+                    new KeyValuePair<string, float>(
+                        "ChargeDuration", 5
+                    )
+                )
+            )
+        );
+    }
+
+    public void AttackConnect(OnAttackConnectEventData e) {
+        Text.Make("Hit!");
+        DidAttackHit = true;
+    }
+
+    public void AttackEnd(OnAttackEndEventData e) {
         AttackInProgress = false;
         if(!DidAttackHit) {
             Text.Make("Miss!");
         }
-    }
-
-    public void DamagePlayer(OnAttackConnectEventData e) {
-        DidAttackHit = true;
-        Text.Make("Hit!");
-        e.With.GetComponent<OnDamageEventEmitter>().Emit(
-            new OnDamageRecievedEventData(e.Damage)
-        );
     }
 }
