@@ -21,6 +21,8 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     private MovableBody Movement;
     [SerializeField]
     private SkillCollection Skills;
+    [SerializeField]
+    private Status PoisonStatusPrefab;
 
     void Start(){
         GoapSystem.Events.Add(
@@ -80,7 +82,7 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
                         "ChargeMaxAcceleration", 0
                     ),
                     new KeyValuePair<string, float>(
-                        "ChargeDuration", 5
+                        "ChargeDuration", 0.5f
                     )
                 )
             )
@@ -90,6 +92,12 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     public void AttackConnect(OnAttackConnectEventData e) {
         Text.Make("Hit!");
         DidAttackHit = true;
+        StatusCollection s = e.With.GetComponentInChildren<StatusCollection>();
+        if(s != null){
+            Status st = Instantiate(PoisonStatusPrefab);
+            st.GetEmitter().Emit(new OnStatusTickEventData(e.With, gameObject, 2f));
+            s.AddStatus(st);
+        }
     }
 
     public void AttackEnd(OnAttackEndEventData e) {

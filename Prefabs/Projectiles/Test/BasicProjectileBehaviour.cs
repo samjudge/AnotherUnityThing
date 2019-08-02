@@ -63,7 +63,7 @@ public class BasicProjectileBehaviour : MonoBehaviour
     public void HitEnemy(OnAttackConnectEventData e){
         OnDamageEventEmitter targetEmitter = e.With.GetComponent<OnDamageEventEmitter>();
         if(targetEmitter != null){
-            targetEmitter.Emit(new OnDamageRecievedEventData(e.Damage));
+            targetEmitter.Emit(new OnDamageRecievedEventData(CreatorCollider.gameObject, e.Damage));
         }
     }
 

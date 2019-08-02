@@ -19,6 +19,5 @@ public class OnAttackEventEmitter : MonoBehaviour
     public void Emit(OnAttackEndEventData e)
     {
         AttackEventHandler.OnAttackEnd.Invoke(e);
-
     }
 }

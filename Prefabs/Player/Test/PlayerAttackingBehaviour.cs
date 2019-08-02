@@ -10,9 +10,8 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private BasicProjectileBehaviourFactory BasicProjectileFactory;
     [SerializeField]
     private PlayerLockOnBehaviour LockOnBehaviour;
-
     [SerializeField]
-    private Skill[] Skills;
+    private SkillCollection Skills;
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
@@ -23,25 +22,55 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                     LaunchAttackToMousePoint();
                 }
                 break;
-            case KeyCode.Mouse1 :
-                if(LockOnBehaviour.LockedOntoBody != null) {
-                    Skills[0].GetEmitter().Emit(
-                        new OnPointTargetCastEventData(
-                            gameObject,
-                            MousePointToWorldPos(),
-                            new StatCollection()
-                        )
-                    );
-                } else {
-                    Skills[0].GetEmitter().Emit(
-                        new OnPointTargetCastEventData(
-                            gameObject,
-                            MousePointToWorldPos(),
-                            new StatCollection()
-                        )
-                    );
-                }
+            case KeyCode.Alpha1:
+                CastSpell(0);
                 break;
+            case KeyCode.Alpha2:
+                CastSpell(1);
+                break;
+            case KeyCode.Alpha3:
+                CastSpell(2);
+                break;
+            case KeyCode.Alpha4:
+                CastSpell(3);
+                break;
+            case KeyCode.Alpha5:
+                CastSpell(4);
+                break;
+        }
+    }
+
+    public void CastSpell(int index){
+        if(LockOnBehaviour.LockedOntoBody != null) {
+            Skills.GetSkills()[index].GetEmitter().Emit(
+                new OnPointTargetCastEventData(
+                    gameObject,
+                    LockOnBehaviour.LockedOntoBody.position,
+                    new StatCollection(
+                        new KeyValuePair<string, float>(
+                            "ChargeDuration", 2
+                        )
+                    )
+                )
+            );
+            Skills.GetSkills()[index].GetEmitter().Emit(
+                new OnLockedTargetCastEventData(
+                    LockOnBehaviour.LockedOntoBody.gameObject,
+                    gameObject
+                )
+            );
+        } else {
+            Skills.GetSkills()[index].GetEmitter().Emit(
+                new OnPointTargetCastEventData(
+                    gameObject,
+                    MousePointToWorldPos(),
+                    new StatCollection(
+                        new KeyValuePair<string, float>(
+                            "ChargeDuration", 2
+                        )
+                    )
+                )
+            );
         }
     }
 

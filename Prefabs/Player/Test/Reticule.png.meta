@@ -1,15 +1,10 @@
 fileFormatVersion: 2
 guid: 711fd3827a657504bad54d512afdfb50
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 8139473923724519928
-    second: Reticule_0
-  - first:
-      213: -4756536373830600105
-    second: Reticule_1
+  fileIDToRecycleName:
+    21300000: Reticule_1
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,7 +100,6 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1b4827d014f5441478bd63abe2667aa5
-      internalID: -4756536373830600105
       vertices: []
       indices: 
       edges: []
@@ -114,12 +108,10 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: d3928dd5996cf1b4ba555fdbdd2b3cf4
-    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

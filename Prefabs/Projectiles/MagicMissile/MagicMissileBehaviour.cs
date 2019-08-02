@@ -89,7 +89,7 @@ public class MagicMissileBehaviour : MonoBehaviour
     public void OnProjectileHit(OnAttackConnectEventData e){
         OnDamageEventEmitter damageEmitter = e.With.GetComponent<OnDamageEventEmitter>();
         if(damageEmitter != null){
-            damageEmitter.Emit(new OnDamageRecievedEventData(e.Damage));
+            damageEmitter.Emit(new OnDamageRecievedEventData(CreatorCollider.gameObject, e.Damage));
         }
     }
 }

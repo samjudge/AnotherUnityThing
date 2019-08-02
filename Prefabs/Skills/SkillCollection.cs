@@ -13,20 +13,21 @@ public class SkillCollection : MonoBehaviour
         this.Skills = new List<Skill>();
         Skill[] Skills = this.GetComponentsInChildren<Skill>();
         for(int x = 0; x < Skills.Length; x++){
-            AddSkill(Skills[x]);
+            this.Skills.Add(Skills[x]);
         }
     }
 
     public void AddSkill(Skill s){
-        //so that it is using a local copy instead of a prefab..
-        //this is required in order for the skill to maintain
-        //some information about it's own state locally and non-statically
-        s = Instantiate(s);
         s.transform.SetParent(transform);
+        s.transform.localPosition = Vector3.zero;
         Skills.Add(s);
     }
 
     public List<Skill> GetSkills(){
-        return this.Skills;
+        return Skills;
+    }
+
+    public void RemoveSkill(Skill s){
+        Skills.Remove(s);
     }
 }

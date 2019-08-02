@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 114108327304922282}
   - component: {fileID: 4859217508972252709}
   - component: {fileID: 7868852945762374499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GreenSlimeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,6 +41,7 @@ Transform:
   - {fileID: 224511601061735344}
   - {fileID: 4027401077359862}
   - {fileID: 1902715317505421983}
+  - {fileID: 6237163215337478481}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,6 +89,7 @@ MonoBehaviour:
   Health: {fileID: 114519894438856658}
   OnDamageEmitter: {fileID: 114000216610688786}
   LockOnEmitter: {fileID: 7868852945762374499}
+  Statuses: {fileID: 8443005449562113739}
   DamageTextFactory: {fileID: 114960779825721514}
   GoapSystem: {fileID: 114604365070371086}
   Body: {fileID: 54147003544480530}
@@ -250,7 +252,7 @@ GameObject:
   - component: {fileID: 114232485915459280}
   - component: {fileID: 114009138097531066}
   - component: {fileID: 114721520600806564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +304,9 @@ MonoBehaviour:
   Text: {fileID: 114960779825721514}
   Slime: {fileID: 114927829282046178}
   Movement: {fileID: 114108327304922282}
-  Skills: {fileID: 0}
+  Skills: {fileID: 5514278846870012017}
+  PoisonStatusPrefab: {fileID: 1967112495786077207, guid: 9e47bb1d326fb5544aa15473fff77e51,
+    type: 3}
 --- !u!114 &114232485915459280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,8 +323,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114275353007345630}
-        m_MethodName: StartAttack
-        m_Mode: 1
+        m_MethodName: AttackStart
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -335,7 +339,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114275353007345630}
-        m_MethodName: DamagePlayer
+        m_MethodName: AttackConnect
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -351,8 +355,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114275353007345630}
-        m_MethodName: EndAttack
-        m_Mode: 1
+        m_MethodName: AttackEnd
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -405,7 +409,7 @@ GameObject:
   - component: {fileID: 114105097177647526}
   - component: {fileID: 114528904745850732}
   - component: {fileID: 114960779825721514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +522,7 @@ GameObject:
   - component: {fileID: 4350797275266314}
   - component: {fileID: 212575875276888956}
   - component: {fileID: 114285392327017312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Renderable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +617,7 @@ GameObject:
   - component: {fileID: 5271020005801833231}
   - component: {fileID: 8134937669828982245}
   - component: {fileID: 640573804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Reticule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,8 +671,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -4756536373830600105, guid: 711fd3827a657504bad54d512afdfb50,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 711fd3827a657504bad54d512afdfb50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -701,7 +704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1902715317505421983}
   - component: {fileID: 5514278846870012017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,6 +738,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 141952388bffb3a478ada0982ac63540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4309591421119236286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6237163215337478481}
+  - component: {fileID: 8443005449562113739}
+  m_Layer: 9
+  m_Name: Statuses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6237163215337478481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309591421119236286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4192296887880426}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8443005449562113739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309591421119236286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f041e655e0080541811a1becd911625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8908279977989570217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -746,6 +792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChargeAttackSkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830602115344767025, guid: 191ca870f2a7c7b45addebde0147b6ce,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7453057217359368706, guid: 191ca870f2a7c7b45addebde0147b6ce,
         type: 3}

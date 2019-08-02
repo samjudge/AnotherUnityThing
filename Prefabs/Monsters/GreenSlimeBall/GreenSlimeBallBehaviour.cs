@@ -14,6 +14,8 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     [SerializeField]
     private OnLockEventEmitter LockOnEmitter;
     [SerializeField]
+    private StatusCollection Statuses;
+    [SerializeField]
     private ScrollingFadingTextBehaviourFactory DamageTextFactory;
     [SerializeField]
     private GoapEventHandler GoapSystem;

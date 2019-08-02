@@ -1,9 +1,13 @@
-﻿public class OnDamageRecievedEventData
+﻿using UnityEngine;
+
+public class OnDamageRecievedEventData
 {
     public float Damage;
+    public GameObject Source;
 
-    public OnDamageRecievedEventData(float damage)
+    public OnDamageRecievedEventData(GameObject source, float damage)
     {
+        Source = source;
         Damage = damage;
     }
 }

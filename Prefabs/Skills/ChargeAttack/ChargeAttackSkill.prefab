@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnCastHandler: {fileID: 6613236591378505679}
   CastEventEmitter: {fileID: 7546228336307962053}
+  UISkillImage: {fileID: 21300000, guid: 699af366ca5ff3f499237964026841bf, type: 3}
 --- !u!114 &7546228336307962053
 MonoBehaviour:
   m_ObjectHideFlags: 0
