@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class OnCastEventHandler : MonoBehaviour {
     [SerializeField]
-    public OnCancelCast OnCancelCast;
+    public OnCancelCastEvent OnCancelCast;
     [SerializeField]
-    public OnPointTargetCast OnPointTargetCast;
+    public OnPassiveCastEvent OnPassiveCast;
+    [SerializeField]
+    public OnCastEndEvent OnEndCast;
+    [SerializeField]
+    public OnCastHitTargetEvent OnCastHitTarget;
+    [SerializeField]
+    public OnPointTargetCastEvent OnPointTargetCast;
     [SerializeField]
     public OnLockedTargetCast OnLockedTargetCast;
 }

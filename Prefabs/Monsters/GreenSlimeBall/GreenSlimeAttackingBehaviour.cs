@@ -10,8 +10,6 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     [SerializeField]
     private GoapEventHandler GoapSystem;
     [SerializeField]
-    private OnAttackEventEmitter Emitter;
-    [SerializeField]
     private Rigidbody Body;
     [SerializeField]
     private ScrollingFadingTextBehaviourFactory Text;
@@ -31,6 +29,17 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
                 LaunchAttack
             )
         );
+        Skills.GetSkills()[1]
+            .GetEmitter()
+            .Emit(new OnPassiveCastEventData(Slime.gameObject));
+        Skills.GetSkills()[0]
+            .GetHandler()
+            .OnEndCast
+            .AddListener(AttackEnd);
+        Skills.GetSkills()[0]
+            .GetHandler()
+            .OnCastHitTarget
+            .AddListener(AttackConnect);
     }
     
     void Update(){ }
@@ -65,42 +74,32 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
             cAttackTimer = 0f;
             AttackInProgress = true;
             DidAttackHit = false;
-            Emitter.Emit(new OnAttackLaunchEventData());
-        }
-    }
-
-    public void AttackStart(OnAttackLaunchEventData e) {
-        Skills.GetSkills()[0].GetEmitter().Emit(
-            new OnPointTargetCastEventData(
-                Slime.gameObject,
-                LastSeenPlayerLocation,
-                new StatCollection(
-                    new KeyValuePair<string, float>(
-                        "ChargeMaxSpeed", 0
-                    ),
-                    new KeyValuePair<string, float>(
-                        "ChargeMaxAcceleration", 0
-                    ),
-                    new KeyValuePair<string, float>(
-                        "ChargeDuration", 0.5f
+            Skills.GetSkills()[0].GetEmitter().Emit(
+                new OnPointTargetCastEventData(
+                    Slime.gameObject,
+                    LastSeenPlayerLocation,
+                    new StatCollection(
+                        new KeyValuePair<string, float>(
+                            "ChargeMaxSpeed", 0
+                        ),
+                        new KeyValuePair<string, float>(
+                            "ChargeMaxAcceleration", 0
+                        ),
+                        new KeyValuePair<string, float>(
+                            "ChargeDuration", 0.5f
+                        )
                     )
                 )
-            )
-        );
-    }
-
-    public void AttackConnect(OnAttackConnectEventData e) {
-        Text.Make("Hit!");
-        DidAttackHit = true;
-        StatusCollection s = e.With.GetComponentInChildren<StatusCollection>();
-        if(s != null){
-            Status st = Instantiate(PoisonStatusPrefab);
-            st.GetEmitter().Emit(new OnStatusTickEventData(e.With, gameObject, 2f));
-            s.AddStatus(st);
+            );
         }
     }
 
-    public void AttackEnd(OnAttackEndEventData e) {
+    public void AttackConnect(OnCastHitTargetEventData e) {
+        Text.Make("Hit!");
+        DidAttackHit = true;
+    }
+
+    public void AttackEnd(OnCastEndEventData e) {
         AttackInProgress = false;
         if(!DidAttackHit) {
             Text.Make("Miss!");

@@ -6,7 +6,9 @@ public class MagicMissileBehaviour : MonoBehaviour
     public Collider CreatorCollider;
     public Transform EndTargetBody;
     [SerializeField]
-    private OnAttackEventEmitter Emitter;
+    public OnCastEventEmitter Emitter;
+    [SerializeField]
+    public Skill Skill;
     [SerializeField]
     private float Lifetime = 3f;
     private float cLifetime = 0f;
@@ -46,9 +48,6 @@ public class MagicMissileBehaviour : MonoBehaviour
                 direction.normalized
             ) * new Vector3(0f, Dice.Roll(MinArcForce, MaxArcForce), 0f);
         LastSeenPos = EndTargetBody.transform.position;
-        Emitter.Emit(
-            new OnAttackLaunchEventData()
-        );
     }
 
     void Update(){
@@ -63,7 +62,7 @@ public class MagicMissileBehaviour : MonoBehaviour
         //end attack if taking too long
         if(cLifetime > Lifetime){
             Emitter.Emit(
-                new OnAttackEndEventData()
+                new OnCastEndEventData(CreatorCollider.gameObject)
             );
         }
         //update the time delta
@@ -74,22 +73,28 @@ public class MagicMissileBehaviour : MonoBehaviour
         //only interact with damagables
         if (O.GetComponent<OnDamageEventHandler>() != null){
             Emitter.Emit(
-                new OnAttackConnectEventData(O.gameObject, 69)
-            );
-            Emitter.Emit(
-                new OnAttackEndEventData()
+                new OnCastHitTargetEventData(
+                    CreatorCollider.gameObject,
+                    O.gameObject
+                )
             );
         }
     }
 
-    public void LifecycleEnd(OnAttackEndEventData e){
+    public void OnCastLifecycleEnd(OnCastEndEventData e){
+        Skill.GetEmitter().Emit(e);
         Destroy(gameObject);
     }
 
-    public void OnProjectileHit(OnAttackConnectEventData e){
+    public void OnProjectileHit(OnCastHitTargetEventData e){
+        Skill.GetEmitter().Emit(e);
         OnDamageEventEmitter damageEmitter = e.With.GetComponent<OnDamageEventEmitter>();
         if(damageEmitter != null){
-            damageEmitter.Emit(new OnDamageRecievedEventData(CreatorCollider.gameObject, e.Damage));
+            damageEmitter.Emit(new OnDamageRecievedEventData(
+                CreatorCollider.gameObject,
+                69
+            ));
+            Emitter.Emit(new OnCastEndEventData(e.Caster));
         }
     }
 }

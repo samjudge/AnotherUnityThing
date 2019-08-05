@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1440992955421869891}
   - component: {fileID: 8798528541565738376}
-  - component: {fileID: 4663984888474277979}
-  - component: {fileID: 171141506338056433}
   - component: {fileID: 5709264626686953568}
+  - component: {fileID: -6312871898864275440}
+  - component: {fileID: 6379651148229272162}
   m_Layer: 0
   m_Name: PoisonFang
   m_TagString: Untagged
@@ -48,7 +48,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4663984888474277979
+--- !u!114 &5709264626686953568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,31 +57,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1440992955421869890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f619d86e4b9011740b35db8b9506dedd, type: 3}
+  m_Script: {fileID: 11500000, guid: 204ffa89bb9c50f4a9cd7eb64e527fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAttackLaunch:
+  Skill: {fileID: 0}
+  Emitter: {fileID: -6312871898864275440}
+  Caster: {fileID: 0}
+  Target: {fileID: 0}
+  StatusPrefab: {fileID: 1967112495786077207, guid: 9e47bb1d326fb5544aa15473fff77e51,
+    type: 3}
+  FangA: {fileID: 1440992956003140961}
+  FangB: {fileID: 8454094856105466759}
+  Lifetime: 1
+--- !u!114 &-6312871898864275440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440992955421869890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4a63bf722bf5546a54561e5b85a6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Handler: {fileID: 6379651148229272162}
+--- !u!114 &6379651148229272162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440992955421869890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCancelCast:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: AttackLaunchEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnCancelCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  OnAttackConnect:
+  OnPassiveCast:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5709264626686953568}
-        m_MethodName: DealPoison
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: AttackConnectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      m_Calls: []
+    m_TypeName: OnPassiveCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  OnAttackEnd:
+  OnEndCast:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5709264626686953568}
@@ -95,40 +118,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: AttackEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnCastEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &171141506338056433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440992955421869890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a85e8b0724287f4faaa881700bef7ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackEventHandler: {fileID: 4663984888474277979}
---- !u!114 &5709264626686953568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440992955421869890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204ffa89bb9c50f4a9cd7eb64e527fe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Emitter: {fileID: 171141506338056433}
-  Target: {fileID: 0}
-  StatusPrefab: {fileID: 1967112495786077207, guid: 9e47bb1d326fb5544aa15473fff77e51,
-    type: 3}
-  FangA: {fileID: 1440992956003140961}
-  FangB: {fileID: 8454094856105466759}
-  Lifetime: 1
+  OnCastHitTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5709264626686953568}
+        m_MethodName: HitTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnCastHitTargetEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPointTargetCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnPointTargetCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLockedTargetCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnLockedTargetCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1440992956003140960
 GameObject:
   m_ObjectHideFlags: 0

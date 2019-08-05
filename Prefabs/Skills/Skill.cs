@@ -14,6 +14,8 @@ public class Skill : MonoBehaviour
     private OnCastEventEmitter CastEventEmitter;
     [SerializeField]
     public Sprite UISkillImage;
+    [SerializeField]
+    public String Label;
 
     public OnCastEventEmitter GetEmitter(){
         return CastEventEmitter;

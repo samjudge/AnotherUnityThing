@@ -11,22 +11,22 @@ public class ChargeAttackSkill : MonoBehaviour
 {
     private float MovementWeighting = 100f;
     private bool IsCharging = false;
-    private OnAttackEventHandler OnAttackEventHandler;
-    private OnAttackEventEmitter OnAttackEventEmitter;
+    [SerializeField]
+    private Skill Skill;
     private MovableBody MovableBody;
     private ColorShifter ColorShifter;
     private GameObject Caster;
     private Vector3 Target;
     private Vector3 Origin;
 
-    public void CancelCharge(OnCancelCastData e){
+    public void CancelCharge(OnCancelCastEventData e){
         IsCharging = false;
     }
 
-    public void DamageTarget(OnAttackConnectEventData e){
+    public void DamageTarget(OnCastHitTargetEventData e){
         OnDamageEventEmitter Emitter = e.With.GetComponent<OnDamageEventEmitter>();
         if(Emitter != null){
-            Emitter.Emit(new OnDamageRecievedEventData(Caster, e.Damage));
+            Emitter.Emit(new OnDamageRecievedEventData(Caster, 25));
         }
     }
 
@@ -34,18 +34,6 @@ public class ChargeAttackSkill : MonoBehaviour
         //such that the skill cannot be cast again if already in motion
         if(!IsCharging){
             Caster = e.Caster;
-            OnAttackEventHandler = Caster.GetComponentInChildren<OnAttackEventHandler>();
-            if(OnAttackEventHandler == null){
-                throw new MissingComponentException(
-                    "No `OnAttackEventHandler` component found on caster when attempting to use charge skill"
-                );
-            }
-            OnAttackEventEmitter = Caster.GetComponentInChildren<OnAttackEventEmitter>();
-            if(OnAttackEventEmitter == null){
-                throw new MissingComponentException(
-                    "No `OnAttackEventEmitter` component found on caster when attempting to use charge skill"
-                );
-            }
             ColorShifter = Caster.GetComponentInChildren<ColorShifter>();
             if(ColorShifter == null) {
                 Debug.LogWarning("No `ColorShifter` shifter component found when attempting to use charge skill");
@@ -72,7 +60,6 @@ public class ChargeAttackSkill : MonoBehaviour
         float bonusAcceleration
     ){
         IsCharging = true;
-        OnAttackEventHandler.OnAttackConnect.AddListener(DamageTarget);
         if(ColorShifter != null){
             ColorShifter.ShiftToColor(new Color(1f,1f,1f), new Color(1f,0f,0f), duration / 4f);
         }
@@ -98,15 +85,15 @@ public class ChargeAttackSkill : MonoBehaviour
         while(timer < duration && IsCharging == true) {
             timer += Time.deltaTime;
             Ray ray = new Ray(Caster.transform.position, direction);
-            RaycastHit[] hits = Physics.RaycastAll(ray, 0.125f); //Physics.OverlapSphere(Caster.transform.position, 0.25f);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 0.125f);
             foreach(RaycastHit hit in hits){
                 if(hit.collider.gameObject == Caster.gameObject) continue; //dont collider with self
                 if(hit.collider.gameObject.layer == Caster.layer) continue; //dont collide with shared tags as caster
                 if(hit.collider.GetComponent<OnDamageEventEmitter>() != null)
                 {
-                    OnAttackEventEmitter.Emit(new OnAttackConnectEventData(
-                        hit.collider.gameObject,
-                        25f //this should come from passed in stats
+                    Skill.GetEmitter().Emit(new OnCastHitTargetEventData(
+                        Caster,
+                        hit.collider.gameObject
                     ));
                     IsCharging = false;
                 }
@@ -114,13 +101,14 @@ public class ChargeAttackSkill : MonoBehaviour
             yield return null;
         }
         IsCharging = false;
-        OnAttackEventHandler.OnAttackConnect.RemoveListener(DamageTarget);
         MovableBody.SetMaxSpeed(MovableBody.GetMaxSpeed() - bonusSpeed);
         MovableBody.SetAcceleration(MovableBody.GetAcceleration() - bonusAcceleration);
         MovableBody.AddToDirection(direction, -MovementWeighting);
         if(ColorShifter != null) {
             ColorShifter.ShiftToColor(new Color(1f,0f,0f), new Color(1f,1f,1f), duration / 4f);
         }
-        OnAttackEventEmitter.Emit(new OnAttackEndEventData());
+        Skill.GetEmitter().Emit(new OnCastEndEventData(
+            Caster
+        ));
     }
 }

@@ -13,5 +13,6 @@ public class PoisonFangSkill : MonoBehaviour
         Projectile.transform.position = e.Caster.transform.position;
         Projectile.Caster = e.Caster.transform;
         Projectile.Target = e.LockedOnTarget;
+        Projectile.Skill = GetComponent<Skill>();
     }
 }

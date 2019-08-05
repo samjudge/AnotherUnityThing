@@ -774,7 +774,7 @@ MonoBehaviour:
     HP Bar (Done)\n16  \tSkill System (Done)\n16  \tStatus System (Done)\n16\tSkill
     Bar UI (Done)\n4\tMagic Missile Spell (Homing) (Done!)\n4\tFireball Spell (Point
     Target AOE -> Good test of onAttackHandler)\n8\tStatus Effects UI (Done)\n8    \tSlime
-    Poision Skill\n8    \tGoblins + Goblin Shaman (w/ raise dead skill)\n32\tPlayer
+    Poision Skill (Done)\n8    \tGoblins + Goblin Shaman (w/ raise dead skill)\n32\tPlayer
     Inventory\n8 \tEnemy Drops\n16\tSystem Menu\n8\tSound Effects\n16            Lock-on
     System (Done!)"
 --- !u!222 &986860381

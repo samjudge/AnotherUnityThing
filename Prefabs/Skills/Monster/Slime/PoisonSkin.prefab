@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2391636323864167030
+--- !u!1 &1149733887565777125
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,81 +8,82 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7516944302787186293}
-  - component: {fileID: 1050806786487352992}
-  - component: {fileID: 6574525345393938073}
-  - component: {fileID: 878176947045590200}
-  - component: {fileID: 872948827698300095}
+  - component: {fileID: 573073600179455695}
+  - component: {fileID: 5014530236680119412}
+  - component: {fileID: -4710252426835121274}
+  - component: {fileID: 1164934203089620779}
+  - component: {fileID: -1658467326285225898}
   m_Layer: 0
-  m_Name: PoisonFangSkill
+  m_Name: PoisonSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7516944302787186293
+--- !u!4 &573073600179455695
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391636323864167030}
+  m_GameObject: {fileID: 1149733887565777125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5504405, y: -0.2647038, z: 4.1341286}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1050806786487352992
+--- !u!114 &5014530236680119412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391636323864167030}
+  m_GameObject: {fileID: 1149733887565777125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb617c63d0ebac04f8c2d9b6dccafb13, type: 3}
+  m_Script: {fileID: 11500000, guid: 800aa0ad82b69264cbe8d4fc0328c900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 5709264626686953568, guid: 5cd1ff56153e4914fa7dc1a983c5d92e, type: 3}
---- !u!114 &6574525345393938073
+  PosionStatus: {fileID: 1967112495786077207, guid: 9e47bb1d326fb5544aa15473fff77e51,
+    type: 3}
+--- !u!114 &-4710252426835121274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391636323864167030}
+  m_GameObject: {fileID: 1149733887565777125}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6cb49605c6e8754fb97c6427ca508c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCastHandler: {fileID: 872948827698300095}
-  CastEventEmitter: {fileID: 878176947045590200}
-  UISkillImage: {fileID: 21300000, guid: 0cf1a2db234722542844882aeceb31d7, type: 3}
-  Label: poison_fang
---- !u!114 &878176947045590200
+  OnCastHandler: {fileID: -1658467326285225898}
+  CastEventEmitter: {fileID: 1164934203089620779}
+  UISkillImage: {fileID: 21300000, guid: 926836f69b9599544ab2d5fb23cc03bc, type: 3}
+  Label: poison_skin
+--- !u!114 &1164934203089620779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391636323864167030}
+  m_GameObject: {fileID: 1149733887565777125}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4a63bf722bf5546a54561e5b85a6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Handler: {fileID: 872948827698300095}
---- !u!114 &872948827698300095
+  Handler: {fileID: -1658467326285225898}
+--- !u!114 &-1658467326285225898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391636323864167030}
+  m_GameObject: {fileID: 1149733887565777125}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
@@ -95,7 +96,18 @@ MonoBehaviour:
       PublicKeyToken=null
   OnPassiveCast:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5014530236680119412}
+        m_MethodName: TickPassive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: OnPassiveCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnEndCast:
@@ -115,17 +127,6 @@ MonoBehaviour:
       PublicKeyToken=null
   OnLockedTargetCast:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1050806786487352992}
-        m_MethodName: Cast
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: OnLockedTargetCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

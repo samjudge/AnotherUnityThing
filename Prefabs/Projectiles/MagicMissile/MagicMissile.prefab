@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1440992955421869891}
   - component: {fileID: 8798528541565738376}
   - component: {fileID: 453467193369949374}
-  - component: {fileID: 4663984888474277979}
-  - component: {fileID: 171141506338056433}
+  - component: {fileID: 7249940064033551428}
+  - component: {fileID: -2675567945761135435}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Untagged
@@ -62,12 +62,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CreatorCollider: {fileID: 0}
   EndTargetBody: {fileID: 0}
-  Emitter: {fileID: 171141506338056433}
+  Emitter: {fileID: 7249940064033551428}
+  Skill: {fileID: 0}
   Lifetime: 1
   Speed: 2
   MinArcForce: 0.75
   MaxArcForce: 1
---- !u!114 &4663984888474277979
+--- !u!114 &7249940064033551428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,15 +77,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1440992955421869890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f619d86e4b9011740b35db8b9506dedd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e4a63bf722bf5546a54561e5b85a6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnAttackLaunch:
+  Handler: {fileID: -2675567945761135435}
+--- !u!114 &-2675567945761135435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440992955421869890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCancelCast:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: AttackLaunchEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnCancelCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  OnAttackConnect:
+  OnPassiveCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnPassiveCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEndCast:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 453467193369949374}
+        m_MethodName: OnCastLifecycleEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnCastEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnCastHitTarget:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 453467193369949374}
@@ -98,37 +133,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: AttackConnectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnCastHitTargetEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  OnAttackEnd:
+  OnPointTargetCast:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 453467193369949374}
-        m_MethodName: LifecycleEnd
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: AttackEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      m_Calls: []
+    m_TypeName: OnPointTargetCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!114 &171141506338056433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440992955421869890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a85e8b0724287f4faaa881700bef7ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackEventHandler: {fileID: 4663984888474277979}
+  OnLockedTargetCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnLockedTargetCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1440992956003140960
 GameObject:
   m_ObjectHideFlags: 0

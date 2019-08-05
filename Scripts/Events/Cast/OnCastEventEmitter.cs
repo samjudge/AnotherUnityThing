@@ -16,4 +16,20 @@ public class OnCastEventEmitter : MonoBehaviour {
     public void Emit(OnLockedTargetCastEventData e){
         Handler.OnLockedTargetCast.Invoke(e);
     }
+
+    public void Emit(OnCancelCastEventData e){
+        Handler.OnCancelCast.Invoke(e);
+    }
+
+    public void Emit(OnPassiveCastEventData e){
+        Handler.OnPassiveCast.Invoke(e);
+    }
+
+    public void Emit(OnCastEndEventData e){
+        Handler.OnEndCast.Invoke(e);
+    }
+
+    public void Emit(OnCastHitTargetEventData e){
+        Handler.OnCastHitTarget.Invoke(e);
+    }
 }

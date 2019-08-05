@@ -5,7 +5,9 @@ public class PoisonFangBehaviour : MonoBehaviour
 {
 
     [SerializeField]
-    private OnAttackEventEmitter Emitter;
+    public Skill Skill;
+    [SerializeField]
+    public OnCastEventEmitter Emitter;
     public Transform Caster;
     public GameObject Target;
     [SerializeField]
@@ -24,7 +26,7 @@ public class PoisonFangBehaviour : MonoBehaviour
     void Update(){
         //early exit
         if(hasHit) return;
-        if(Target == null) Emitter.Emit(new OnAttackEndEventData());
+        if(Target == null) Emitter.Emit(new OnCastEndEventData(Caster.gameObject));
         //update this position
         transform.position = Vector3.Lerp(
             Caster.position,
@@ -48,7 +50,7 @@ public class PoisonFangBehaviour : MonoBehaviour
         //update clock
         cLifetime += Time.deltaTime;
         if(cLifetime > Lifetime) {
-            Emitter.Emit(new OnAttackEndEventData());
+            Emitter.Emit(new OnCastEndEventData(Caster.gameObject));
         }
     }
 
@@ -57,19 +59,26 @@ public class PoisonFangBehaviour : MonoBehaviour
         if (O.GetComponentInChildren<StatusCollection>() != null){
             if(O.gameObject == Caster.gameObject) return; //dont collider with self
             if(O.gameObject.layer == Caster.gameObject.layer) return; //dont collide with shared tags as caster
-            //Do damage thing
-            StatusCollection StatusCollection =
-            O.GetComponentInChildren<StatusCollection>();
-            Status PosionStatus = Instantiate(StatusPrefab);
-            StatusCollection.AddStatus(
-                PosionStatus
-            );
-            hasHit = true;
-            PosionStatus.Emitter.Emit(
-                new OnStatusStartEventData(O.gameObject, gameObject, 3f)
-            );
-            StartCoroutine(DestroyAfter(1f));
+            Emitter.Emit(new OnCastHitTargetEventData(
+                Caster.gameObject,
+                O.gameObject
+            ));
         }
+    }
+
+    public void HitTarget(OnCastHitTargetEventData e){
+        Skill.GetEmitter().Emit(e);
+        StatusCollection StatusCollection =
+            e.With.GetComponentInChildren<StatusCollection>();
+        Status PosionStatus = Instantiate(StatusPrefab);
+        StatusCollection.AddStatus(
+            PosionStatus
+        );
+        hasHit = true;
+        PosionStatus.Emitter.Emit(
+            new OnStatusStartEventData(e.With.gameObject, gameObject, 3f)
+        );
+        StartCoroutine(DestroyAfter(1f));
     }
 
     public IEnumerator DestroyAfter(float s) {
@@ -79,11 +88,12 @@ public class PoisonFangBehaviour : MonoBehaviour
         ParticleEmission.enabled = false;
         yield return new WaitForSeconds(s);
         Emitter.Emit(
-           new OnAttackEndEventData()
+           new OnCastEndEventData(Caster.gameObject)
         );
     }
 
-    public void LifecycleEnd(OnAttackEndEventData e){
+    public void LifecycleEnd(OnCastEndEventData e){
+        Skill.GetEmitter().Emit(e);
         Destroy(gameObject);
     }
 }

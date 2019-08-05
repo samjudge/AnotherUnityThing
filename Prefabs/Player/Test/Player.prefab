@@ -603,8 +603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefab: {fileID: 114510374848221866, guid: 3a42c0fdbddc1034a99ec2a859177078, type: 3}
   Owner: {fileID: 135411978764487118}
-  Lifespan: 2
-  ProjectileSpeed: 50
+  Lifespan: 0.1
+  ProjectileSpeed: 2
   Face: {fileID: 0}
 --- !u!114 &8618432743061349176
 MonoBehaviour:

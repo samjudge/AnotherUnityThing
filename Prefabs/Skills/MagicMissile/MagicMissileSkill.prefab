@@ -62,6 +62,7 @@ MonoBehaviour:
   OnCastHandler: {fileID: 872948827698300095}
   CastEventEmitter: {fileID: 878176947045590200}
   UISkillImage: {fileID: 21300000, guid: ddb0253588439054bac1eb6b0859588e, type: 3}
+  Label: magic_missile
 --- !u!114 &878176947045590200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,11 +91,27 @@ MonoBehaviour:
   OnCancelCast:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnCancelCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_TypeName: OnCancelCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPassiveCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnPassiveCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEndCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCastEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnCastHitTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCastHitTargetEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   OnPointTargetCast:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: OnPointTargetCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnPointTargetCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnLockedTargetCast:
     m_PersistentCalls:

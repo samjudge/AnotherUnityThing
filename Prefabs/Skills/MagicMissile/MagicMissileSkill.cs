@@ -13,5 +13,6 @@ public class MagicMissileSkill : MonoBehaviour
         Projectile.transform.position = e.Caster.transform.position;
         Projectile.EndTargetBody = e.LockedOnTarget.transform;
         Projectile.CreatorCollider = e.Caster.GetComponent<Collider>();
+        Projectile.Skill = GetComponent<Skill>();
     }
 }
