@@ -21,6 +21,6 @@ public class Dice {
     }
 
     public static float Roll(float min, float max){
-        return min + (( (float) Die.NextDouble() * max) - min);
+        return (float) Die.NextDouble() * (max - min) + min;
     }
 }

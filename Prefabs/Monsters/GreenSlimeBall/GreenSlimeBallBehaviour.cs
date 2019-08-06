@@ -36,10 +36,6 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
 
     void Start(){
         GoapSystem.Events.Add(new GoapFunctionPair(
-            WanderAroundScore,
-            WanderAround
-        ));
-        GoapSystem.Events.Add(new GoapFunctionPair(
             ChasePlayerInLOSScore,
             ChasePlayerInLOS
         ));
@@ -47,29 +43,13 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     
     void Update(){}
 
-    //goap testing
-    [SerializeField]
-    private float MaxSpeed = 1f;
-    [SerializeField]
-    private float Acceleration = 1f;
-
-    private uint WanderAroundScore(){
-        return 1;
-    }
-
-    private void WanderAround(){
-        Movement.SetAcceleration(Acceleration);
-        Movement.SetMaxSpeed(MaxSpeed);
-        Movement.SetDirection((new Vector3(Dice.Roll(-100,100), 0 , Dice.Roll(-100,100))).normalized);
-    }
-
     private float PlayerSearchRadiusUnits = 2f;
     private Vector3 LastSeenPlayerLocation;
 
     private uint ChasePlayerInLOSScore(){
         Collider[] collisions =
             Physics.OverlapSphere(this.transform.position, PlayerSearchRadiusUnits);
-        uint score = 0;
+        uint score = 1;
         foreach(Collider c in collisions){
             if(c.GetComponent<PlayerMovementBehaviour>() != null){
                 score = 2;
@@ -80,8 +60,6 @@ public class GreenSlimeBallBehaviour : MonoBehaviour
     }
 
     private void ChasePlayerInLOS(){
-        Movement.SetAcceleration(Acceleration);
-        Movement.SetMaxSpeed(MaxSpeed);
         Movement.SetDirection((LastSeenPlayerLocation - this.transform.position).normalized);
     }
 

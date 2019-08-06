@@ -14,7 +14,7 @@ public class MovableBody : MonoBehaviour
     private float Acceleration;
     [SerializeField]
     private Rigidbody Body;
-    
+
     void FixedUpdate(){
         //limit the speed of the provisioned body
         Body.AddForce(Direction.normalized * Acceleration);
@@ -44,7 +44,7 @@ public class MovableBody : MonoBehaviour
     }
 
     public void SetDirection(Vector3 Direction) {
-        Direction = Vector3.zero;
+        this.Direction = Vector3.zero;
         AddToDirection(Direction, 1);
     }
 
