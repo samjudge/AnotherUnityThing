@@ -26,7 +26,10 @@ public class PoisonFangBehaviour : MonoBehaviour
     void Update(){
         //early exit
         if(hasHit) return;
-        if(Target == null) Emitter.Emit(new OnCastEndEventData(Caster.gameObject));
+        if(Target == null) {
+            Emitter.Emit(new OnCastEndEventData(Caster.gameObject));
+            return;
+        }
         //update this position
         transform.position = Vector3.Lerp(
             Caster.position,

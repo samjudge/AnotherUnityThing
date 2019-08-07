@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoblinSpearmanBehaviour : MonoBehaviour
+public class GoblinShamanBehaviour : MonoBehaviour
 {
     [SerializeField]
     private GoapEventHandler GoapSystem;
@@ -17,8 +17,6 @@ public class GoblinSpearmanBehaviour : MonoBehaviour
     private OnLockEventEmitter LockOnEmitter;
     [SerializeField]
     private ScrollingFadingTextBehaviourFactory DamageTextFactory;
-    [SerializeField]
-    private GameObject Corpse;
 
     void Start() { }
     
@@ -28,9 +26,7 @@ public class GoblinSpearmanBehaviour : MonoBehaviour
         Health.TakeDamage(DamageData.Damage);
         if(Health.CurrentValue < 0) {
             LockOnEmitter.Emit(new OnLockReleaseEventData());
-            GameObject g = Instantiate(Corpse);
-            g.transform.position = transform.position;
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
