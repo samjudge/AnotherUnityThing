@@ -194,6 +194,7 @@ Transform:
   - {fileID: 1614300355}
   - {fileID: 558032542}
   - {fileID: 2893414997989927890}
+  - {fileID: 1609430149}
   m_Father: {fileID: 565797190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,7 +345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1061975129931710, guid: 51438bd29b090c84599c34257f7e2e09, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4192296887880426, guid: 51438bd29b090c84599c34257f7e2e09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &986860380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoblinSpearmanCorpse (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119120442411001855, guid: 13c6580f1c66a43448d8286c42aeb945,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
         type: 3}
@@ -632,6 +638,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1609430149 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2878162848574481936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1614300355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
@@ -649,6 +661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoblinSpearmanCorpse (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119120442411001855, guid: 13c6580f1c66a43448d8286c42aeb945,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
         type: 3}
@@ -718,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoblinSpearmanCorpse (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119120442411001855, guid: 13c6580f1c66a43448d8286c42aeb945,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
         type: 3}
@@ -848,6 +870,10 @@ PrefabInstance:
     - target: {fileID: 1829928394198976, guid: 28660be049df8964d8b4ec4064e36fb9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829928394198976, guid: 28660be049df8964d8b4ec4064e36fb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4723279119811038, guid: 28660be049df8964d8b4ec4064e36fb9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1428,6 +1454,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinShaman
       objectReference: {fileID: 0}
+    - target: {fileID: 2767969164926660941, guid: 64f4d7099db4ce845b3ff82e11923e01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2766595870397465625, guid: 64f4d7099db4ce845b3ff82e11923e01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1562,23 +1593,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3010698910693240680, guid: 61db46ddbfdf5ef4a9fd71f986d8a855,
-        type: 3}
-      propertyPath: OnReceiveDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4218800347547844923}
-    - target: {fileID: 3010698910693240680, guid: 61db46ddbfdf5ef4a9fd71f986d8a855,
-        type: 3}
-      propertyPath: OnReceiveDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TakeDamage
-      objectReference: {fileID: 0}
-    - target: {fileID: 5064072411212280447, guid: 61db46ddbfdf5ef4a9fd71f986d8a855,
-        type: 3}
-      propertyPath: BonusPriorityPerSecond
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61db46ddbfdf5ef4a9fd71f986d8a855, type: 3}
+--- !u!1001 &2878162848574481936
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 584626512}
+    m_Modifications:
+    - target: {fileID: 2878162849546359444, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_Name
+      value: HealingPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878162849546359445, guid: c7af4d2f5c27015498d8aa2b61b36c0e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7af4d2f5c27015498d8aa2b61b36c0e, type: 3}
 --- !u!4 &2893414997989927890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2766595870397465625, guid: 64f4d7099db4ce845b3ff82e11923e01,
@@ -1591,18 +1676,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1360008678021064324}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4218800347547844923 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4770326305076569886, guid: 61db46ddbfdf5ef4a9fd71f986d8a855,
-    type: 3}
-  m_PrefabInstance: {fileID: 1360008678021064324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c973d62883cca414f9cfd66833e73a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4611913701721763550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
@@ -1620,6 +1693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GoblinSpearmanCorpse
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119120442411001855, guid: 13c6580f1c66a43448d8286c42aeb945,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1119930793949631147, guid: 13c6580f1c66a43448d8286c42aeb945,
         type: 3}

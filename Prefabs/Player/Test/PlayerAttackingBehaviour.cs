@@ -12,6 +12,8 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private PlayerLockOnBehaviour LockOnBehaviour;
     [SerializeField]
     private SkillCollection Skills;
+    [SerializeField]
+    private ItemCollection Items;
 
     public void AttackByKeyEvent(OnKeyDownEventData e){
         switch(e.Key){
@@ -36,6 +38,11 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                 break;
             case KeyCode.Alpha5:
                 CastSpell(4);
+                break;
+            case KeyCode.F1:
+                Items.GetItemAtIndex(0).Emitter.Emit(
+                    new OnItemUseEventData(gameObject)
+                );
                 break;
         }
     }

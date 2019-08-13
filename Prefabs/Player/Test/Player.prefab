@@ -637,6 +637,7 @@ MonoBehaviour:
   BasicProjectileFactory: {fileID: 114908204136016710}
   LockOnBehaviour: {fileID: 8618432743061349176}
   Skills: {fileID: 2339729067803922477}
+  Items: {fileID: 998646331846807709}
 --- !u!114 &114476970335272428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,8 +1150,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3822108812901622133}
+  - component: {fileID: 998646331846807709}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1170,6 +1172,18 @@ Transform:
   m_Father: {fileID: 4723279119811038}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &998646331846807709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154228867005343012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d4902f01e656e4cb606c6347504718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6513906219847535241
 GameObject:
   m_ObjectHideFlags: 0

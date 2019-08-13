@@ -30,7 +30,10 @@ public class SkillCollection : MonoBehaviour
     public void RemoveSkill(Skill s){
         List<Skill> Skills = GetSkills();
         foreach(Skill sk in Skills){
-            if(sk == s) this.Skills.Remove(s.Label);
+            if(sk == s) {
+                this.Skills.Remove(s.Label);
+                return;
+            }
         }
         throw new UnknownNamedSkillException(
             "Attempted to remove non-existant skill `" + s.Label + "`"
