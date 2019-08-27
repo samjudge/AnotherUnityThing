@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2878162849546359449}
   - component: {fileID: 2878162849546359448}
   - component: {fileID: 2878162849546359447}
-  - component: {fileID: 2878162849546359450}
+  - component: {fileID: -5337025184698132319}
   m_Layer: 0
   m_Name: HealingPotion
   m_TagString: Untagged
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Face: {fileID: 0}
   Transform: {fileID: 2878162849546359445}
---- !u!114 &2878162849546359450
+--- !u!114 &-5337025184698132319
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +135,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2878162849546359444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad0acf2dc82cd184496e5e663d4a2a65, type: 3}
+  m_Script: {fileID: 11500000, guid: 34b02e0a4c0ca7e458a00e06f0dc26d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 2910897480214296767, guid: c57d50fdadefaef4c9950bb9dddbb689, type: 3}
+  ItemPrefab: {fileID: 2910897480214296767, guid: c57d50fdadefaef4c9950bb9dddbb689,
+    type: 3}

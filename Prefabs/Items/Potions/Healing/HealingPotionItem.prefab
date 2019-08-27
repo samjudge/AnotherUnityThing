@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1931721451946337662}
   - component: {fileID: 6295557572035861588}
   m_Layer: 0
-  m_Name: HealingPotion
+  m_Name: HealingPotionItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec066c4728a3750498ac280a326a671d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UISkillImage: {fileID: 0}
+  UIItemImage: {fileID: 21300000, guid: 2daf913212685374bbdbcdac1b0baf8d, type: 3}
   Label: healing_potion
   Emitter: {fileID: 1931721451946337662}
 --- !u!114 &6021343266737316078
@@ -103,4 +103,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: OnItemUseEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemCollectEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6021343266737316078}
+        m_MethodName: Collect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnItemCollectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

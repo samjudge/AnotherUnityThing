@@ -12,4 +12,8 @@ public class OnItemEventEmitter : MonoBehaviour {
     public void Emit(OnItemUseEventData e){
         Handler.OnItemUseEvent.Invoke(e);
     }
+
+    public void Emit(OnItemCollectEventData e){
+        Handler.OnItemCollectEvent.Invoke(e);
+    }
 }

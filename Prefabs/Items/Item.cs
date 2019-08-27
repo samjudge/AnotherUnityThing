@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField]
-    public Sprite UISkillImage;
+    public Sprite UIItemImage;
     [SerializeField]
     public String Label;
     [SerializeField]

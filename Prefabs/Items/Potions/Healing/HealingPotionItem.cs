@@ -18,4 +18,8 @@ public class HealingPotionItem : MonoBehaviour
             c.RemoveItem(Item);
         }
     }
+
+    public void Collect(OnItemCollectEventData e) {
+        Debug.Log("Picked up HP pot!");
+    }
 }

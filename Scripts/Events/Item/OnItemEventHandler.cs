@@ -7,4 +7,6 @@ using UnityEngine;
 public class OnItemEventHandler : MonoBehaviour {
     [SerializeField]
     public OnItemUseEvent OnItemUseEvent;
+    [SerializeField]
+    public OnItemCollectEvent OnItemCollectEvent;
 }

@@ -11,6 +11,10 @@ class PoisonSkinSkill : MonoBehaviour
     private Status PosionStatus;
     private bool HasAlreadyAppliedEffect = false;
 
+    public void Start() {
+
+    }
+
     public void TickPassive(OnPassiveCastEventData e) {
         //early exit
         if(HasAlreadyAppliedEffect) return;
