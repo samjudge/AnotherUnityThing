@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1149733887565777125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 573073600179455695}
+  - component: {fileID: 8954190767160803153}
+  - component: {fileID: -4710252426835121274}
+  - component: {fileID: 1164934203089620779}
+  - component: {fileID: -1658467326285225898}
+  m_Layer: 0
+  m_Name: BamboozleSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &573073600179455695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149733887565777125}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8954190767160803153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149733887565777125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bba86ee79136c438f48975a8c42c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConfusionStatus: {fileID: 1967112495786077207, guid: 84c116d28221d4248a95a0475d123d50,
+    type: 3}
+--- !u!114 &-4710252426835121274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149733887565777125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cb49605c6e8754fb97c6427ca508c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCastHandler: {fileID: -1658467326285225898}
+  CastEventEmitter: {fileID: 1164934203089620779}
+  UISkillImage: {fileID: 21300000, guid: cd6b70df8064d5146a81cf4761fe63ad, type: 3}
+  Label: Bamboozle
+--- !u!114 &1164934203089620779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149733887565777125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4a63bf722bf5546a54561e5b85a6db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Handler: {fileID: -1658467326285225898}
+--- !u!114 &-1658467326285225898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149733887565777125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2098971792f6ff24cac20433f56e454f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnCancelCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCancelCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPassiveCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnPassiveCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnEndCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCastEndEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnCastHitTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnCastHitTargetEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnPointTargetCast:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8954190767160803153}
+        m_MethodName: Cast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnPointTargetCastEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnLockedTargetCast:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnLockedTargetCast, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

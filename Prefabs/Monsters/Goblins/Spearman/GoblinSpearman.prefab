@@ -302,7 +302,7 @@ MonoBehaviour:
   Movement: {fileID: 3009857043215097002}
   BasePriority: 1
   WanderAroundFor: 1
-  BonusPriorityPerSecond: 0.1
+  BonusPriorityPerSecond: 2
 --- !u!114 &3010259287023411154
 MonoBehaviour:
   m_ObjectHideFlags: 0

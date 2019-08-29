@@ -8,11 +8,23 @@ public class HealingPotionItem : MonoBehaviour
     public Item Item;
 
     public void Use(OnItemUseEventData e) {
-        Health h = e.User.GetComponentInChildren<Health>();
+        Heal(e.User);
+        RemoveFromInventoryOf(e.User);
+    }
+
+    public void UseInfinate(OnItemUseEventData e) {
+        Heal(e.User);
+    }
+
+    private void Heal(GameObject user){
+        Health h = user.GetComponentInChildren<Health>();
         if(h != null){
             h.TakeDamage(-25f);
         }
-        ItemCollection c = e.User.GetComponentInChildren<ItemCollection>();
+    }
+
+    private void RemoveFromInventoryOf(GameObject user){
+        ItemCollection c = user.GetComponentInChildren<ItemCollection>();
         if(c != null){
             Destroy(gameObject);
             c.RemoveItem(Item);

@@ -86,6 +86,7 @@ public class ChargeAttackSkill : MonoBehaviour
             timer += Time.deltaTime;
             Ray ray = new Ray(Caster.transform.position, direction);
             RaycastHit[] hits = Physics.RaycastAll(ray, 0.125f);
+            bool didHitTarget = false;
             foreach(RaycastHit hit in hits){
                 if(hit.collider.gameObject == Caster.gameObject) continue; //dont collider with self
                 if(hit.collider.gameObject.layer == Caster.layer) continue; //dont collide with shared tags as caster
@@ -95,15 +96,16 @@ public class ChargeAttackSkill : MonoBehaviour
                         Caster,
                         hit.collider.gameObject
                     ));
-                    IsCharging = false;
+                    didHitTarget = true;
                 }
             }
+            if(didHitTarget) break;
             yield return null;
         }
         IsCharging = false;
         MovableBody.SetMaxSpeed(MovableBody.GetMaxSpeed() - bonusSpeed);
         MovableBody.SetAcceleration(MovableBody.GetAcceleration() - bonusAcceleration);
-        MovableBody.AddToDirection(direction, -MovementWeighting);
+        MovableBody.RemoveFromDirection(direction, MovementWeighting);
         if(ColorShifter != null) {
             ColorShifter.ShiftToColor(new Color(1f,0f,0f), new Color(1f,1f,1f), duration / 4f);
         }

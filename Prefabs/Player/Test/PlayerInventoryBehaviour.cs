@@ -6,6 +6,8 @@ public class PlayerInventoryBehaviour : MonoBehaviour {
 
     [SerializeField]
     private ItemCollection Items;
+    [SerializeField]
+    private PlayerInventoryItems InventoryUI;
 
 	public void OnAdd(OnInventoryAddEventData e){
         Items.AddItemToFirstEmptyIndex(e.Item);
@@ -37,6 +39,14 @@ public class PlayerInventoryBehaviour : MonoBehaviour {
                 Items.GetItemAtIndex(4).Emitter.Emit(
                     new OnItemUseEventData(gameObject)
                 );
+                break;
+        }
+    }
+
+    public void ShowInventoryByKeyEvent(OnKeyDownEventData e){ 
+        switch(e.Key){
+            case KeyCode.I:
+                InventoryUI.ToggleIsOpen();
                 break;
         }
     }

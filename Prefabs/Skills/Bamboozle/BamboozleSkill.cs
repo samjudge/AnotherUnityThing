@@ -5,19 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class EnvenomSkill : MonoBehaviour
+class BamboozleSkill : MonoBehaviour
 {
     [SerializeField]
-    private Status PosionStatus;
+    private Status ConfusionStatus;
 
     public void Cast(OnPointTargetCastEventData e) {
         StatusCollection statusCollection =
             e.Caster.GetComponentInChildren<StatusCollection>();
         if(statusCollection != null){
-            Status posionStatus = Instantiate(PosionStatus);
-            statusCollection.AddStatus(posionStatus);
-            posionStatus.Emitter.Emit(
-                new OnStatusStartEventData(e.Caster, gameObject, 3f)
+            Status confusionStatus = Instantiate(ConfusionStatus);
+            statusCollection.AddStatus(confusionStatus);
+            confusionStatus.Emitter.Emit(
+                new OnStatusStartEventData(e.Caster, gameObject, 5f)
             );
         }
     }

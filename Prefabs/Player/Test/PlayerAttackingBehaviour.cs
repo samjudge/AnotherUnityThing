@@ -12,7 +12,6 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private PlayerLockOnBehaviour LockOnBehaviour;
     [SerializeField]
     private SkillCollection Skills;
-    
 
     public void Update(){
         List<Skill> Skills = this.Skills.GetSkills();

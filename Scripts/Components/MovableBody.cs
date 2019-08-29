@@ -50,6 +50,18 @@ public class MovableBody : MonoBehaviour
 
     public void AddToDirection(Vector3 Direction, float WithMagnitude) {
         this.Direction += Direction.normalized * WithMagnitude;
+        //if the magnitude is small enough just make it Vector3.zero
+        //this is to deal with floating point precision errors
+        float precision = 0.005f;
+        if(Mathf.Abs(this.Direction.x) <= precision){
+            this.Direction.x = 0f;
+        }
+        if(Mathf.Abs(this.Direction.y) <= precision){
+            this.Direction.y = 0f;
+        }
+        if(Mathf.Abs(this.Direction.z) <= precision){
+            this.Direction.z = 0f;
+        }
     }
 
     public void RemoveFromDirection(Vector3 Direction, float WithMagnitude) {

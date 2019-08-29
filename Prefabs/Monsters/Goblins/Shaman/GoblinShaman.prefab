@@ -314,9 +314,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoapSystem: {fileID: 2881495096609179645}
   Movement: {fileID: 2882141572147546713}
-  BasePriority: 1
+  BasePriority: 2
   WanderAroundFor: 1
-  BonusPriorityPerSecond: 1
+  BonusPriorityPerSecond: 2
 --- !u!114 &2881410591550818593
 MonoBehaviour:
   m_ObjectHideFlags: 0

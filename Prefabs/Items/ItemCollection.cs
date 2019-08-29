@@ -22,7 +22,6 @@ public class ItemCollection : MonoBehaviour
     }
 
     public void AddItemToFirstEmptyIndex(Item i){
-        Debug.Log(GetFirstEmptyIndex());
         Items[GetFirstEmptyIndex()] = i;
     }
 
