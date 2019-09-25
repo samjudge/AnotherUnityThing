@@ -9,4 +9,10 @@ public class OnItemEventHandler : MonoBehaviour {
     public OnItemUseEvent OnItemUseEvent;
     [SerializeField]
     public OnItemCollectEvent OnItemCollectEvent;
+    [SerializeField]
+    public OnItemEquipEvent OnItemEquipEvent;
+    [SerializeField]
+    public OnItemUnequipEvent OnItemUnequipEvent;
+    [SerializeField]
+    public OnItemAttemptEquipEvent OnItemAttemptEquipEvent;
 }

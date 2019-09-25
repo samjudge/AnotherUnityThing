@@ -10,7 +10,11 @@ public class PlayerInventoryBehaviour : MonoBehaviour {
     private PlayerInventoryItems InventoryUI;
 
 	public void OnAdd(OnInventoryAddEventData e){
-        Items.AddItemToFirstEmptyIndex(e.Item);
+        Items.AddItem(e.Item);
+        e.Item.Emitter.Emit(new OnItemCollectEventData(
+            gameObject
+        ));
+        InventoryUI.RefreshRenderedItems();
     }
 
     public void UseItemByKeyEvent(OnKeyDownEventData e){

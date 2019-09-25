@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6021343266737316078}
   - component: {fileID: 1931721451946337662}
   - component: {fileID: 6295557572035861588}
+  - component: {fileID: 1261814441176773315}
+  - component: {fileID: -1142210465309426818}
   m_Layer: 0
   m_Name: HealingPotionItem
   m_TagString: Untagged
@@ -46,9 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec066c4728a3750498ac280a326a671d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIItemImage: {fileID: 21300000, guid: 2daf913212685374bbdbcdac1b0baf8d, type: 3}
-  Label: healing_potion
+  UIItemImage: {fileID: 894945321173968318, guid: 7a1e7828f6b2e31468442944c4e44b3f,
+    type: 3}
+  Label: healing potion
   Emitter: {fileID: 1931721451946337662}
+  UIEmitter: {fileID: 1261814441176773315}
+  Category: 2
 --- !u!114 &6021343266737316078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnItemEventEmitter: {fileID: 1931721451946337662}
   Item: {fileID: 2910897480214296767}
+  DescriptionPrefab: {fileID: 8258917736942471837, guid: 6ab91392b4d891e4eaed465e6152a3d6,
+    type: 3}
 --- !u!114 &1931721451946337662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,4 +126,55 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: OnItemCollectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemEquipEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnItemEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &1261814441176773315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763390b88c550da459be874f277bd4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Handler: {fileID: -1142210465309426818}
+--- !u!114 &-1142210465309426818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e06a404a654344aad1454c9feacaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUIItemDescribeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6021343266737316078}
+        m_MethodName: OnDescribeItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemDescribeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnUIItemEquipEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnUIItemEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

@@ -5,28 +5,39 @@ using UnityEngine;
 
 public class ItemCollection : MonoBehaviour
 {
-    private Dictionary<int, Item> Items;
+    private List<Item> Items;
 
     void Awake(){
-        this.Items = new Dictionary<int, Item>();
+        this.Items = new List<Item>();
         Item[] Items = GetComponentsInChildren<Item>();
         for(int x = 0; x < Items.Length; x++){
             this.Items[x] = Items[x];
         }
     }
 
-    public void AddItem(int toIndex, Item i){
+    public void AddItem(Item i){
         i.transform.SetParent(transform);
         i.transform.localPosition = Vector3.zero;
-        Items[toIndex] = i;
-    }
-
-    public void AddItemToFirstEmptyIndex(Item i){
-        Items[GetFirstEmptyIndex()] = i;
+        Items.Add(i);
     }
 
     public List<Item> GetItems(){
-        return new List<Item>(Items.Values);
+        return Items;
+    }
+
+    public Item GetItemAtIndexAndCategory(int index, Item.ItemTag category){
+        int originalIndex = index;
+        for (int x = 0; x < Items.Count; x++) {
+            if(Items[x].Category == category) {
+                index--;
+            }
+            if(index == -1){
+                return Items[x];
+            }
+        }
+        throw new UnknownItemException(
+            "Could not find item at index `" + originalIndex + "` in category `" + category + "`"
+        );
     }
 
     public void RemoveItemAtIndex(int forIndex){
@@ -35,8 +46,7 @@ public class ItemCollection : MonoBehaviour
                 "Attempted to remove item from empty index `" + forIndex + "`"
             );
         }
-        Destroy(Items[forIndex]);
-        Items[forIndex] = null;
+        Items.RemoveAt(forIndex);
     }
 
     public void RemoveItem(Item i){

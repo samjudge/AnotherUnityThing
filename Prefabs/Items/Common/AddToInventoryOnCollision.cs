@@ -11,9 +11,6 @@ public class AddToInventoryOnCollision : MonoBehaviour
             C.gameObject.GetComponentInChildren<OnInventoryEventEmitter>();
         if(Emitter != null) {
             Item Item = Instantiate(ItemPrefab);
-            Item.Emitter.Emit(new OnItemCollectEventData(
-                C.gameObject
-            ));
             Emitter.Emit(new OnInventoryAddEventData(
                 Item
             ));

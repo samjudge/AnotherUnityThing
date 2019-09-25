@@ -47,9 +47,9 @@ public class ChargeAttackSkill : MonoBehaviour
             Target = e.Target;
             Origin = e.Caster.transform.position;
             StartCharging(
-                e.Stats.GetValue("ChargeDuration", 0.33f),
-                e.Stats.GetValue("ChargeBonusSpeed", 2),
-                e.Stats.GetValue("ChargeBonusAcceleration", 10)
+                e.Stats.GetValue("ChargeDuration") + 0.33f,
+                e.Stats.GetValue("ChargeBonusSpeed") + 2f,
+                e.Stats.GetValue("ChargeBonusAcceleration") + 10f
             );
         }
     }

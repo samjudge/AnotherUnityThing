@@ -1,0 +1,599 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &852916692489966895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2376594526777994267}
+  - component: {fileID: 666247233584190587}
+  - component: {fileID: 8145791695869658823}
+  - component: {fileID: 6301467101464759778}
+  m_Layer: 0
+  m_Name: BezOH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2376594526777994267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852916692489966895}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2910897480214296766}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666247233584190587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852916692489966895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cf4b3110407f241994e805f563bb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasedOnStats: {fileID: 8145791695869658823}
+  Description: <color=#f00f>Berzerk On Hit -> 1%</color>
+  Icon: {fileID: -3006465836527314796, guid: 7a1e7828f6b2e31468442944c4e44b3f, type: 3}
+--- !u!114 &8145791695869658823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852916692489966895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4f5835a44743943b23377486929cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6301467101464759778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852916692489966895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0871609c5eae94b8894367f7810849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 1
+  Name: BezOH
+  Source: {fileID: 2910897480214296753}
+--- !u!1 &2910897480214296753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2910897480214296766}
+  - component: {fileID: 2910897480214296767}
+  - component: {fileID: 5245735246375779088}
+  - component: {fileID: 6040286590049077834}
+  - component: {fileID: 3294130859123585602}
+  - component: {fileID: -3822800459438221303}
+  - component: {fileID: 6641285979293553488}
+  - component: {fileID: -586195998473157371}
+  - component: {fileID: 1931721451946337662}
+  - component: {fileID: 6295557572035861588}
+  - component: {fileID: 2627886770864670508}
+  - component: {fileID: -8706986956796263884}
+  m_Layer: 0
+  m_Name: BloodyAxeItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2910897480214296766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2346605933774904158}
+  - {fileID: 6656784803444556970}
+  - {fileID: 2376594526777994267}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2910897480214296767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec066c4728a3750498ac280a326a671d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIItemImage: {fileID: -3006465836527314796, guid: 7a1e7828f6b2e31468442944c4e44b3f,
+    type: 3}
+  Label: bloody axe
+  Emitter: {fileID: 1931721451946337662}
+  UIEmitter: {fileID: 2627886770864670508}
+  Category: 0
+--- !u!114 &5245735246375779088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0419172e8914a40bb36d0399cd4ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DescriptionPrefab: {fileID: 5847767030856967439, guid: 5c3b660ff061dc048a85a9317312efe7,
+    type: 3}
+  StatLinePrefab: {fileID: 1619907395610277807, guid: 08541b0753a0d0a4ca9af4d918c48b04,
+    type: 3}
+  StatBonuses:
+  - {fileID: 4998944666404529371}
+  - {fileID: 6374331082267046527}
+  - {fileID: 666247233584190587}
+  EquipImage: {fileID: -3006465836527314796, guid: 7a1e7828f6b2e31468442944c4e44b3f,
+    type: 3}
+  TopDescription: A sharp axe. <color=#f00f>Blood</color> continously flows from it's
+    edge.
+  BottomDescription: '"The bloody edged ax, said to drive it''s wielder crazed with
+    rage should it''s edge ever dry. Their origin lies in foul unknown blood magics,
+    but it is said the blade must first been quenched in the belly of a expectant
+    mother."'
+  EquippableTo: {fileID: -3822800459438221303}
+--- !u!114 &6040286590049077834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c44d13538a694cbd8f3f9335e0978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatBonuses:
+  - {fileID: 482383686265999123}
+  - {fileID: 8280115590698514043}
+  - {fileID: 6301467101464759778}
+--- !u!114 &3294130859123585602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab3503cf73f24449b5cb9252501abc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3822800459438221303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4aa61eaaf886e42b0ecd8518fa964d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanEquipToSlots: 0000000002000000
+--- !u!114 &6641285979293553488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33538b96a3ccab84897bbaecc8c04844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EquipableTo: {fileID: -3822800459438221303}
+--- !u!114 &-586195998473157371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8755b5101e2ae7e428f5697670424b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1931721451946337662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552742c3622a8464c848dc00a4623447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Handler: {fileID: 6295557572035861588}
+--- !u!114 &6295557572035861588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250907c981a2e154fa36f4bdadb668f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnItemUseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnItemUseEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemCollectEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnItemCollectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemEquipEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3294130859123585602}
+        m_MethodName: Equip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6040286590049077834}
+        m_MethodName: Equip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnItemEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemUnequipEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3294130859123585602}
+        m_MethodName: Unequip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6040286590049077834}
+        m_MethodName: Unequip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnItemUnequipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnItemAttemptEquipEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6641285979293553488}
+        m_MethodName: AttemptEquip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnItemAttemptEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &2627886770864670508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 763390b88c550da459be874f277bd4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Handler: {fileID: -8706986956796263884}
+--- !u!114 &-8706986956796263884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910897480214296753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e06a404a654344aad1454c9feacaec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnUIItemDescribeEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5245735246375779088}
+        m_MethodName: Describe
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemDescribeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnUIItemEquipEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5245735246375779088}
+        m_MethodName: UIEquip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnUIItemUnequipEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnUIItemUnequipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnUIItemHoverEquipmentSlotEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5245735246375779088}
+        m_MethodName: SlotHover
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemHoverEquipmentSlotEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnUIItemEquipmentCompareEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5245735246375779088}
+        m_MethodName: UICompareTo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemEquipmentCompareEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnUIItemAttemptEquipEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6641285979293553488}
+        m_MethodName: UIAttemptEquip
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: OnUIItemAttemptEquipEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!1 &7386588171212829366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6656784803444556970}
+  - component: {fileID: 6374331082267046527}
+  - component: {fileID: 6183088805123510946}
+  - component: {fileID: 8280115590698514043}
+  m_Layer: 0
+  m_Name: MaxDmg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6656784803444556970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386588171212829366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2910897480214296766}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6374331082267046527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386588171212829366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cf4b3110407f241994e805f563bb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasedOnStats: {fileID: 6183088805123510946}
+  Description: Max Damage -> 8
+  Icon: {fileID: 2330866738244189442, guid: 7a1e7828f6b2e31468442944c4e44b3f, type: 3}
+--- !u!114 &6183088805123510946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386588171212829366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4f5835a44743943b23377486929cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8280115590698514043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386588171212829366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0871609c5eae94b8894367f7810849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 8
+  Name: MaxDmg
+  Source: {fileID: 2910897480214296753}
+--- !u!1 &7942464890303092220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2346605933774904158}
+  - component: {fileID: 4998944666404529371}
+  - component: {fileID: 2364817790640274090}
+  - component: {fileID: 482383686265999123}
+  m_Layer: 0
+  m_Name: MinDmg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2346605933774904158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942464890303092220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2910897480214296766}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4998944666404529371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942464890303092220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cf4b3110407f241994e805f563bb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BasedOnStats: {fileID: 2364817790640274090}
+  Description: Min Damage -> 2
+  Icon: {fileID: 2330866738244189442, guid: 7a1e7828f6b2e31468442944c4e44b3f, type: 3}
+--- !u!114 &2364817790640274090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942464890303092220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4f5835a44743943b23377486929cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &482383686265999123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7942464890303092220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0871609c5eae94b8894367f7810849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 2
+  Name: MinDmg
+  Source: {fileID: 2910897480214296753}

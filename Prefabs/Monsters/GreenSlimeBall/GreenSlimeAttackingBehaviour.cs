@@ -21,6 +21,8 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
     private SkillCollection Skills;
     [SerializeField]
     private Status PoisonStatusPrefab;
+    [SerializeField]
+    private StatCollection Stats;
 
     void Start(){
         GoapSystem.Events.Add(
@@ -78,17 +80,7 @@ public class GreenSlimeAttackingBehaviour : MonoBehaviour
                 new OnPointTargetCastEventData(
                     Slime.gameObject,
                     LastSeenPlayerLocation,
-                    new StatCollection(
-                        new KeyValuePair<string, float>(
-                            "ChargeMaxSpeed", 0
-                        ),
-                        new KeyValuePair<string, float>(
-                            "ChargeMaxAcceleration", 0
-                        ),
-                        new KeyValuePair<string, float>(
-                            "ChargeDuration", 0.5f
-                        )
-                    )
+                    Stats
                 )
             );
         }

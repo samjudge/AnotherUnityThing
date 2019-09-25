@@ -12,6 +12,8 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
     private PlayerLockOnBehaviour LockOnBehaviour;
     [SerializeField]
     private SkillCollection Skills;
+    [SerializeField]
+    private StatCollection Stats;
 
     public void Update(){
         List<Skill> Skills = this.Skills.GetSkills();
@@ -53,11 +55,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                 new OnPointTargetCastEventData(
                     gameObject,
                     LockOnBehaviour.LockedOntoBody.position,
-                    new StatCollection(
-                        new KeyValuePair<string, float>(
-                            "ChargeDuration", 2
-                        )
-                    )
+                    Stats
                 )
             );
             Skills.GetSkills()[index].GetEmitter().Emit(
@@ -71,11 +69,7 @@ public class PlayerAttackingBehaviour : MonoBehaviour {
                 new OnPointTargetCastEventData(
                     gameObject,
                     MousePointToWorldPos(),
-                    new StatCollection(
-                        new KeyValuePair<string, float>(
-                            "ChargeDuration", 2
-                        )
-                    )
+                    Stats
                 )
             );
         }

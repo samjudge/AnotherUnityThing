@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConfusionPotionItem : MonoBehaviour
 {
     public OnItemEventEmitter OnItemEventEmitter;
     public Item Item;
     public Status ConfusionStatus;
+    [SerializeField]
+    private GameObject DescriptionPrefab;
 
     public void Use(OnItemUseEventData e) {
         ApplyConfusionTo(e.User);
@@ -32,6 +35,16 @@ public class ConfusionPotionItem : MonoBehaviour
             Destroy(gameObject);
             c.RemoveItem(Item);
         }
+    }
+
+    public void OnItemDescribeEent(OnUIItemDescribeEventData e) {
+        GameObject g = Instantiate(DescriptionPrefab);
+        Text t = g.GetComponentInChildren<Text>();
+        t.supportRichText = true;
+        Health h = e.User.GetComponentInChildren<Health>();
+        t.text = "A Potion Of Confusion\n" +
+            "Will <color=yellow>Confuse</color> the drinker";
+        g.GetComponent<RectTransform>().SetParent(e.DescriptionParent, false);
     }
 
     public void Collect(OnItemCollectEventData e) {
